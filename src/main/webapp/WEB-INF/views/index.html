@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorator="temple/layout">
+<head>
+
+    <title>标签管理</title>
+</head>
+
+<body>
+<div id="content" class="clearfix" layout:fragment="content">
+<div class="contentwrapper"><!--Content wrapper-->
+
+<div class="heading">
+
+    <h3>首页</h3>                    
+
+    <div class="resBtnSearch">
+        <a href="#"><span class="icon16 icomoon-icon-search-3"></span></a>
+    </div>
+
+    <div class="search">
+
+        <form action="search.html" id="searchform">
+            <input type="text" placeholder="搜索" class="top-search text" id="tipue_search_input"/>
+            <input type="submit" value="" class="search-btn nostyle" id="tipue_search_button"/>
+        </form>
+
+    </div><!-- End search -->
+    
+    <ul class="breadcrumb">
+        <li>你所在的位置:</li>
+        <li>
+            <a class="tip" href="#" oldtitle="back to dashboard" title="">
+                <span class="icon16 icomoon-icon-screen-2"></span>
+            </a> 
+            <span class="divider">
+                <span class="icon16 icomoon-icon-arrow-right-2"></span>
+            </span>
+        </li>
+        <li class="active">首页</li>
+    </ul>
+
+</div><!-- End .heading-->
+
+<!-- Build page from here: -->
+<div class="row-fluid">
+
+    <div class="span8">
+        <div class="centerContent">
+  
+            <ul class="bigBtnIcon">
+                <li>
+                    <a class="tipB" href="#" oldtitle="I`m with gradient" title="">
+                        <span class="icon icomoon-icon-users"></span>
+                        <span class="txt">用户</span>
+                        <span class="notification">5</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon icomoon-icon-support"></span>
+                        <span class="txt">支持票</span>
+                        <span class="notification blue">12</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="pattern tipB" href="#" oldtitle="I`m with pattern" title="">
+                        <span class="icon icomoon-icon-comments-2"></span>
+                        <span class="txt">新评论</span>  
+                        <span class="notification green">23</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon icomoon-icon-basket"></span>
+                        <span class="txt">订单</span>
+                        <span class="notification">+5</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon icomoon-icon-history"></span>
+                        <span class="txt">备份</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon icomoon-icon-meter-fast"></span>
+                        <span class="txt">现场使用</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div><!-- End .span8 -->
+
+    <div class="span4">
+        <div class="centerContent">
+            <div class="circle-stats">
+                
+                <div class="circular-item tipB" oldtitle="Site overload" title="">
+                    <span class="icon icomoon-icon-fire"></span>
+                    <div style="width:80px;display:inline;&quot;">
+                    <canvas height="80" width="80"></canvas>
+                    <input type="text" class="redCircle text" value="62" style="width: 40px; position: absolute; margin-top: 28.5714px; margin-left: -60px; font-size: 20px; border: medium none; background: transparent none repeat scroll 0% 0%; font-family: Arial; font-weight: bold; text-align: center; color: rgb(237, 122, 83); padding: 0px;" readonly="readonly"/></div>
+                </div>
+
+                <div class="circular-item tipB" oldtitle="Site average load time" title="">
+                    <span class="icon icomoon-icon-busy"></span>
+                    <div style="width:80px;display:inline;&quot;"><canvas height="80" width="80"></canvas><input type="text" class="blueCircle text" value="12" style="width: 40px; position: absolute; margin-top: 28.5714px; margin-left: -60px; font-size: 20px; border: medium none; background: transparent none repeat scroll 0% 0%; font-family: Arial; font-weight: bold; text-align: center; color: rgb(136, 187, 200); padding: 0px;" readonly="readonly"/></div>
+                </div>
+
+                <div class="circular-item tipB" oldtitle="Target complete" title="">
+                    <span class="icon icomoon-icon-target-2"></span>
+                    <div style="width:80px;display:inline;&quot;"><canvas height="80" width="80"></canvas><input type="text" class="greenCircle text" value="94" style="width: 40px; position: absolute; margin-top: 28.5714px; margin-left: -60px; font-size: 20px; border: medium none; background: transparent none repeat scroll 0% 0%; font-family: Arial; font-weight: bold; text-align: center; color: rgb(159, 197, 105); padding: 0px;" readonly="readonly"/></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div><!-- End .span4 -->
+
+</div><!-- End .row-fluid -->
+
+
+
+<div class="row-fluid">
+
+    <div class="span4">
+
+        <div class="box gradient">
+
+            <div class="title">
+
+                <h4>
+                    <span class="icon16 icomoon-icon-pie"></span>
+                    <span>访客概要</span>
+                </h4>
+                <a class="minimize" href="#" style="display: none;">Minimize</a>
+            </div>
+            <div class="content">
+               <div style="height: 240px; width: 100%; padding: 0px; position: relative;" class="pieStats">
+               <canvas class="base" width="322" height="240"></canvas>
+               <canvas class="overlay" width="322" height="240" style="position: absolute; left: 0px; top: 0px;"></canvas>
+               <div class="legend"><div style="position: absolute; width: 137px; height: 44px; top: 5px; right: 5px; background-color: rgb(255, 255, 255); opacity: 0.85;"> </div>
+               <table style="position:absolute;top:5px;right:5px;;font-size:smaller;color:#545454">
+               <tbody><tr><td class="legendColorBox">
+               	<div style="border:1px solid null;padding:1px">
+               	<div style="width:4px;height:0;border:5px solid #88bbc8;overflow:hidden"></div></div></td>
+               	<td class="legendLabel">%78.75 New Visitor</td></tr>
+               	<tr><td class="legendColorBox"><div style="border:1px solid null;padding:1px">
+               	<div style="width:4px;height:0;border:5px solid #ed7a53;overflow:hidden"></div></div></td>
+               	<td class="legendLabel">%21.25 Returning Visitor</td></tr></tbody></table></div></div>
+            </div>
+
+        </div><!-- End .box -->
+
+     
+    </div><!-- End .span4 -->
+
+    <div class="span4">
+        <div class="box gradient">
+
+            <div class="title">
+
+                <h4>
+                    <span class="icon16 icomoon-icon-thumbs-up"></span>
+                    <span>重要恒星  <span class="label label-success"><span class="icomoon-icon-arrow-up-2 white"></span>1268</span></span>
+                </h4>
+                <a class="minimize" href="#">Minimize</a>
+            </div>
+            <div class="content">
+              
+                <div style="padding-bottom:23px" class="vital-stats">
+                    <ul class="unstyled">
+                        <li>
+                            <span class="icon24 icomoon-icon-arrow-up-2 green"></span> 81% 点击
+                            <span class="pull-right strong">567</span>
+                            <div class="progress progress-striped ">
+                                <div style="width: 81%;" class="bar"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon24 icomoon-icon-arrow-up-2 green"></span> 72% 独特的点击
+                            <span class="pull-right strong">507</span>
+                            <div class="progress progress-success progress-striped ">
+                                <div style="width: 72%;" class="bar"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon24 icomoon-icon-arrow-down-2 red"></span> 53% 压迹
+                            <span class="pull-right strong">457</span>
+                            <div class="progress progress-warning progress-striped ">
+                                <div style="width: 53%;" class="bar"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="icon24 icomoon-icon-arrow-up-2 green"></span> 3% 在线用户
+                            <span class="pull-right strong">8</span>
+                            <div class="progress progress-danger progress-striped ">
+                                <div style="width: 3%;" class="bar"></div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+
+        </div><!-- End .box -->  
+    </div><!-- End .span4 -->
+
+    <div class="span4">
+
+        <div class="reminder">
+            <h4>待处理事项 
+                <a class="icon tip" href="#" oldtitle="Configure" title=""><span class="icon16 icomoon-icon-cog-2"></span></a>
+            </h4>
+            <ul>
+                <li class="clearfix">
+                    <div class="icon">
+                        <span class="icon32 icomoon-icon-basket gray"></span>
+                    </div>
+                    <span class="number">7</span> 
+                    <span class="txt">待定订单</span>
+                    <a class="btn btn-warning">查找</a>
+                </li>
+                <li class="clearfix">
+                    <div class="icon">
+                        <span class="icon32 icomoon-icon-support red"></span>
+                    </div>
+                    <span class="number">3</span> 
+                    <span class="txt">支持票 </span>
+                    <a class="btn btn-warning">查找</a>
+                </li>
+                <li class="clearfix">
+                    <div class="icon">
+                        <span class="icon32 icomoon-icon-new green"></span>
+                    </div>
+                    <span class="number">5</span> 
+                    <span class="txt">新发票 </span>
+                    <a class="btn btn-warning">查找</a>
+                </li>
+                <li class="clearfix">
+                    <div class="icon">
+                        <span class="icon32 icomoon-icon-comments-4 blue"></span>
+                    </div>
+                    <span class="number">13</span> 
+                    <span class="txt">评论</span> 
+                    <a class="btn btn-warning">查找</a>
+                </li>
+                <li class="clearfix">
+                    <div class="icon">
+                        <span class="icon32 icomoon-icon-cog dark"></span>
+                    </div>
+                    <span class="number">2</span> 
+                    <span class="txt">设置更改 </span>
+                    <a class="btn btn-warning">查找</a>
+                </li>                                   
+            </ul>
+        </div><!-- End .reminder -->
+
+    </div><!-- End .span4 -->
+
+</div><!-- End .row-fluid -->
+
+<div class="row-fluid">
+
+   
+
+
+
+  
+
+</div><!-- End .row-fluid -->
+
+<div id="myModal1" class="modal fade hide">
+    <div class="modal-header">
+        <button data-dismiss="modal" class="close" type="button"><span class="icon12 minia-icon-close"></span></button>
+        <h3>Chat layout</h3>
+    </div>
+    <div class="modal-body">
+        <ul class="messages">
+            <li class="user clearfix">
+                <a class="avatar" href="#">
+                    <img alt="" src="images/avatar2.jpeg"/>
+                </a>
+                <div class="message">
+                    <div class="head clearfix">
+                        <span class="name"><strong>Lazar</strong> says:</span>
+                        <span class="time">25 seconds ago</span>
+                    </div>
+                    <p>
+                        Time to go i call you tomorrow.
+                    </p>
+                </div>
+            </li>
+            <li class="admin clearfix">
+                <a class="avatar" href="#">
+                    <img alt="" src="images/avatar3.jpeg"/>
+                </a>
+                <div class="message">
+                    <div class="head clearfix">
+                        <span class="name"><strong>Sugge</strong> says:</span>
+                        <span class="time">just now</span>
+                    </div>
+                    <p>
+                        OK, have a nice day.
+                    </p>
+                </div>
+            </li>
+
+            <li class="sendMsg">
+                <form action="#" class="form-horizontal">
+                    <textarea style="width: 98%; overflow: hidden; height: 60px;" placeholder="Enter your message ..." rows="1" id="textarea1" class="elastic uniform"></textarea>
+                    <button class="btn btn-info marginT10" type="submit">Send message</button>
+                <div style="position: absolute; display: none; word-wrap: break-word; white-space: pre-wrap; border-color: rgb(204, 204, 204); border-style: solid; border-width: 1px; font-weight: 400; width: 98px; font-family: &quot;Helvetica Neue&quot;,Helvetica,Arial,sans-serif; line-height: 20px; font-size: 14px; padding: 4px 6px;">&nbsp;</div></form>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <a data-dismiss="modal" class="btn" href="#">Close</a>
+    </div>
+</div>
+
+</div><!-- End contentwrapper -->
+</div>
+</body>
+</html>

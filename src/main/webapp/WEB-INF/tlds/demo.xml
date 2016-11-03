@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xml>
+<taglib>
+	<tlibversion>1.0</tlibversion>
+	<jspversion>1.1</jspversion>
+	<shortname>String JSPTag Library</shortname>
+	<uri>/strTag</uri>
+	<info>自定义标签测试</info>
+	<tag>
+		<name>hello</name>
+		<tagclass>cn.zsmy.palmdoc.tld.StrTld</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>自定义标签测试</info>
+		<attribute>
+			<name>content</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>length</name>
+			<required>true</required>
+		</attribute>
+	</tag>
+</taglib>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xml>
+<ehcache name="default-cache" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	updateCheck="false">
+	<cacheManagerEventListenerFactory
+		class="" properties="" />
+	<diskStore path="java.io.tmpdir" />
+	<!-- DefaultCache setting. -->
+	<defaultCache maxElementsInMemory="500" eternal="false"
+		timeToIdleSeconds="300" timeToLiveSeconds="600" overflowToDisk="true" />
+	<!-- 登录记录缓存 锁定10分钟 -->
+	<cache name="myMenuCache" maxElementsInMemory="2000" eternal="false"
+		timeToIdleSeconds="3600" timeToLiveSeconds="0" overflowToDisk="false"
+		statistics="true">
+	</cache>
+
+	<cache name="accountCache" maxElementsInMemory="2000" eternal="false"
+		timeToIdleSeconds="3600" timeToLiveSeconds="0" overflowToDisk="false"
+		statistics="true">
+	</cache>
+
+	<cache name="menuCache" maxElementsInMemory="2000" eternal="false"
+		timeToIdleSeconds="3600" timeToLiveSeconds="0" overflowToDisk="false"
+		statistics="true">
+	</cache>
+
+	<cache name="productCache" maxElementsInMemory="2000" eternal="false"
+		timeToIdleSeconds="3600" timeToLiveSeconds="0" overflowToDisk="false"
+		statistics="true">
+	</cache>
+	<cache name="parentCache" maxElementsInMemory="2000" eternal="false"
+		timeToIdleSeconds="3600" timeToLiveSeconds="0" overflowToDisk="false"
+		statistics="true">
+	</cache>
+	<cache name="idCache" maxElementsInMemory="2000" eternal="false"
+		timeToIdleSeconds="3600" timeToLiveSeconds="0" overflowToDisk="false"
+		statistics="true">
+	</cache>
+	<cache name="orderCache" maxElementsInMemory="2000" eternal="false"
+		timeToIdleSeconds="3600" timeToLiveSeconds="0" overflowToDisk="false"
+		statistics="true">
+	</cache>
+	<cache name="wxconfigCache" maxElementsInMemory="2000" eternal="false"
+		timeToIdleSeconds="3600" timeToLiveSeconds="0" overflowToDisk="false"
+		statistics="true">
+	</cache>
+</ehcache>

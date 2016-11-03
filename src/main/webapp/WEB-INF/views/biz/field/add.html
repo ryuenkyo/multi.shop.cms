@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorator="temple/layout">
+<head>
+    <title>菜单管理</title>    
+</head>
+<body>
+	<div id="content" class="clearfix" layout:fragment="content">
+        <div class="contentwrapper"><!--Content wrapper-->
+        	<div class="heading">
+            	<h3>账号新增</h3>
+	            <div class="resBtnSearch">
+	                <a href="#"><span class="icon16 icomoon-icon-search-3"></span></a>
+	            </div>
+	            <div class="search">
+	                <form id="searchform" action="search.html">
+	                    <input type="text" id="tipue_search_input" class="top-search text" placeholder="搜索"/>
+	                    <input type="submit" id="tipue_search_button" class="search-btn nostyle" value=""/>
+	                </form>
+	            </div>            
+	            <ul class="breadcrumb">
+	                <li>你所在的位置:</li>
+	                <li>
+	                    <a title="" oldtitle="back to dashboard" href="#" class="tip">
+	                        <span class="icon16 icomoon-icon-screen-2"></span>
+	                    </a> 
+	                    <span class="divider">
+	                        <span class="icon16 icomoon-icon-arrow-right-2"></span>
+	                    </span>
+	                </li>
+	                <li class="active">账号新增</li>
+	            </ul>
+	          </div><!-- End .heading-->
+            
+	        <!-- Build page from here: Usual with -->             
+	        <div class="row-fluid">
+	        	<div class="span12">
+	            	<div class="box">
+				    	<div class="title">
+			            	<h4> 
+			                	<span>账号明细</span>
+			                </h4>                    
+	                	</div>
+	                    <div class="content"> 
+		        			<div class="form-row row-fluid">                     
+		        			   <div class="span4">
+		        			        <div class="row-fluid">
+		        			             <label class="form-label span4" for="code">编码</label>
+		        			             <input class="span8 focused" id="code" name="code" type="text" th:value="${model.code}"/>
+		        			        </div>
+		        			    </div>
+		        				<div class="span4">
+		        					<div class="row-fluid">
+		        						 <label class="form-label span6" for="name">名称</label>
+		        						 <input class="span6 tip" id="name" name="name" type="text" th:value="${model.name}"/>
+		        					</div>
+		        				</div> 
+		        				<div class="span4">
+		        					 <div class="row-fluid">
+		        						  <label class="form-label span6" for="orderNo">顺序</label>
+		        					      <input class="span6" id="orderNo" name="orderNo"  type="text" th:value="${model.name}" />
+		        					 </div>
+		        				</div>                   
+		        			</div>
+		            	</div>
+	                	<div class="content noPad">                   
+				        	<form class="form-horizontal" action="#" method="post">
+				        		<input type="hidden" name="modelId" th:value="${model.id}"/>
+				            	<div class="form-row row-fluid">                     
+				                	<div class="span3">
+				                		<div class="row-fluid">
+				                			<label class="form-label span6" for="code">编码</label>
+				                			<input class="span6 focused" id="code" name="code" type="text" value="" />
+				                		</div>
+				                	</div>
+				                    <div class="span3">
+				                    	<div class="row-fluid">
+				                    		<label class="form-label span6" for="name">名称</label>
+				                    		<input class="span6 tip" id="name" name="name" type="text" title="" />
+				                    	</div>
+				                    </div>
+				                    <div class="span4">
+				                        <div class="row-fluid">
+				                            <label class="form-label span4" for="type">类型</label>
+				                            <div class="span8 controls">   
+			                                    <select name="type">
+			                                    	<option th:each="fieldType : ${fieldTypes}" th:value="${fieldType}" th:text="${fieldType.title}">card</option>
+			                                    </select>
+			                                </div> 
+				                        </div>
+				                    </div>
+				                </div>
+				                <div class="form-actions">
+				                	<button type="submit" class="btn btn-info">保存</button>
+				                	<button type="button" class="btn back">返回</button>
+				                </div>
+				             </form>                 
+				        </div>
+				    </div><!-- End .box -->
+	               </div><!-- End .span12 -->
+	          </div><!-- End .container-fluid -->
+        </div><!-- End content wrapper -->
+      </div>
+    </body>
+</html>

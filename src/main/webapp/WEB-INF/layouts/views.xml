@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="preview" extends="blank.definition">
+		<put-attribute name="main-content" value="/WEB-INF/views/preview.jsp" />
+	</definition>
+	<definition name="error" extends="blank.definition">
+		<put-attribute name="main-content" value="/WEB-INF/views/error.jsp" />
+	</definition>
+
+	<definition name="/admin/calendar" extends="admin.index.definition">
+		<put-attribute name="main-sidebar" value="/admin/menu/my_menu.do" />
+		<put-attribute name="main-content" value="/WEB-INF/views/admin/calendar.jsp" />
+	</definition>
+	<definition name="/admin/login" extends="admin.login.definition">
+		<put-attribute name="container" value="/WEB-INF/views/admin/login.jsp" />
+	</definition>
+
+	<definition name="/site/index" extends="site.definition">
+		<put-attribute name="main-content" value="/WEB-INF/views/site/index.jsp" />
+	</definition>
+	<definition name="/site/*" extends="blank.definition">
+		<put-attribute name="main-content" value="/WEB-INF/views/site/{1}.jsp" />
+	</definition>
+	<definition name="/site/user/profile" extends="site.definition">
+		<put-attribute name="header" value="" />
+		<put-attribute name="main-content" value="/WEB-INF/views/site/profile.jsp" />
+	</definition>
+
+	<definition name="/site/product/index" extends="blank.definition">
+		<put-attribute name="main-content"
+			value="/WEB-INF/views/site/product/index.jsp" />
+	</definition>
+
+	<definition name="/site/*/*" extends="site.definition">
+		<put-attribute name="header" value="" />
+		<put-attribute name="main-content" value="/WEB-INF/views/site/{1}/{2}.jsp" />
+	</definition>
+	<definition name="/shop/product/gallery_list" extends="blank.definition">
+		<put-attribute name="main-content"
+			value="/WEB-INF/views/shop/product/gallery_list.jsp" />
+	</definition>
+	<definition name="/cat/select_sub_cat" extends="blank.definition">
+		<put-attribute name="main-content"
+			value="/WEB-INF/views/biz/cat/select_sub_cat.jsp" />
+	</definition>
+	<definition name="/admin/*" extends="admin.definition">
+		<put-attribute name="main-sidebar" value="/admin/menu/my_menu.do" />
+		<put-attribute name="main-content" value="/WEB-INF/views/admin/{1}.jsp" />
+	</definition>
+	<definition name="/ajaxDone" extends="blank.definition">
+		<put-attribute name="main-content" value="/WEB-INF/views/ajaxDone.jsp" />
+	</definition>
+	<definition name="/admin/*/*" extends="admin.list.definition">
+		<!-- <put-attribute name="main-sidebar" value="/WEB-INF/template/admin/admin/main-sidebar.jsp" /> -->
+		<put-attribute name="main-sidebar" value="/admin/menu/my_menu.do" />
+	    <put-attribute name="table-body"	value="/WEB-INF/views/admin/{1}/{2}.jsp" />
+	</definition>
+	
+	<definition name="/*/*/add" extends="admin.add.definition">
+		<!-- <put-attribute name="main-sidebar" value="/WEB-INF/template/admin/admin/main-sidebar.jsp" /> -->
+		<put-attribute name="main-sidebar" value="/admin/menu/my_menu.do" />
+	    <put-attribute name="page-content"	value="/WEB-INF/views/{1}/{2}/add.jsp" />
+	</definition>
+	<definition name="/*/*/edit" extends="admin.add.definition">
+		<put-attribute name="main-sidebar" value="/admin/menu/my_menu.do" />
+	    <put-attribute name="page-content"	value="/WEB-INF/views/{1}/{2}/edit.jsp" />
+	</definition>
+
+	<definition name="/menu/my" extends="blank.definition">
+		<put-attribute name="main-content"
+			value="/WEB-INF/views/admin/menu/my_menu.jsp" />
+	</definition>
+</tiles-definitions>

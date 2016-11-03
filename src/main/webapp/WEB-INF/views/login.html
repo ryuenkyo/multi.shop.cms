@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorator="temple/login">
+<head>
+    <title>标签管理</title>
+</head>
+
+<body>
+	<div id="header" class="clearfix" layout:fragment="header">
+	  <div class="row-fluid">
+	      <div class="navbar">
+	          <div class="navbar-inner">
+	            <div class="container">
+	                  <a class="brand" href="dashboard.html">掌尚名医移动互联网.<span class="slogan">医疗管理系统</span></a>
+	            </div>
+	          </div><!-- /navbar-inner -->
+	        </div><!-- /navbar -->
+        </div><!-- End .row-fluid -->
+	</div>
+	<div class="loginContainer" layout:fragment="content">
+     <form class="form-horizontal" action="" id="loginForm" method="post">
+         <div class="form-row row-fluid">
+             <div class="span12">
+                 <div class="row-fluid">
+                     <label class="form-label span12" for="username">
+                         账号:
+                         <span class="icon16 icomoon-icon-user-3 right gray marginR10"></span>
+                     </label>
+                     <input class="span12" id="username" type="text" name="username" value="13795377008" />
+                 </div>
+             </div>
+         </div>
+
+         <div class="form-row row-fluid">
+             <div class="span12">
+                 <div class="row-fluid">
+                     <label class="form-label span12" for="password">
+                         密码:
+                         <span class="icon16 icomoon-icon-locked right gray marginR10"></span>
+                         <span class="forgot"><a href="#">忘记密码?</a></span>
+                     </label>
+                     <input class="span12" id="password" type="password" name="password" value="1111" />
+                 </div>
+             </div>
+         </div>
+         <div class="form-row row-fluid">                       
+             <div class="span12">
+                 <div class="row-fluid">
+                     <div class="form-actions">
+                     <div class="span12 controls">
+                         <input type="checkbox" id="keepLoged" value="Value" class="styled" name="logged" /> 记住
+                         <button type="submit" class="btn btn-info right" id="loginBtn">
+                         	<span class="icon16 icomoon-icon-enter white"></span> 登录</button>
+                     </div>
+                     </div>
+                 </div>
+             </div> 
+         </div>
+
+     </form>
+	</div>
+</body>
+</html>

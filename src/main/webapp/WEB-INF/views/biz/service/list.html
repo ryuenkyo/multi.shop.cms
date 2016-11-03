@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorator="temple/layout">
+<head>
+    <title>菜单管理</title>
+    
+</head>
+
+<body>
+<div id="content" class="clearfix" layout:fragment="content">
+<div class="contentwrapper"><!--Content wrapper-->
+
+<div class="heading">
+
+    <h3>首页</h3>                    
+
+    <div class="resBtnSearch">
+        <a href="#"><span class="icon16 icomoon-icon-search-3"></span></a>
+    </div>
+
+    <div class="search">
+
+        <form action="search.html" id="searchform">
+            <input type="text" placeholder="搜索" class="top-search text" id="tipue_search_input"/>
+            <input type="submit" value="" class="search-btn nostyle" id="tipue_search_button"/>
+        </form>
+
+    </div><!-- End search -->
+    
+    <ul class="breadcrumb">
+        <li>你所在的位置:</li>
+        <li>
+            <a class="tip" href="#" oldtitle="back to dashboard" title="">
+                <span class="icon16 icomoon-icon-screen-2"></span>
+            </a> 
+            <span class="divider">
+                <span class="icon16 icomoon-icon-arrow-right-2"></span>
+            </span>
+        </li>
+        <li class="active">首页</li>
+    </ul>
+
+</div><!-- End .heading-->
+
+<!-- Build page from here: -->
+<div class="row-fluid">
+	<div class="span12">    
+    <div class="box">
+        <div class="title">
+            <h4>
+                <span class="  icomoon-icon-users-2 "></span>
+                <span>菜单管理</span>
+                <form class="box-form right" action="">
+                    <a class="btn dropdown-toggle"  href="${appPath}/admin/menu/tree.do">
+                        <span class="icon16 icomoon-icon-cog-2"></span>树形
+                    </a>
+                    <c:if test="${empty parent}">
+                    	<a class="btn dropdown-toggle"  href="${appPath}/admin/menu/add.do">
+                    	 	<span class="icon16 icomoon-icon-cog-2"></span>新增
+                         </a>
+                    </c:if>
+                    <c:if test="${!empty parent}">
+                    	<a class="btn dropdown-toggle"  href="${appPath}/admin/menu/parent/add.do?parentId=${parent.id}">
+                    	 	<span class="icon16 icomoon-icon-cog-2"></span>新增
+                         </a>
+                    </c:if>	                               
+                       
+                </form>
+            </h4>            
+            <a class="minimize" href="#" style="display: none;">Minimize</a>
+        </div>
+        <c:if test="${!empty parent}">
+            <div class="content"> 
+				<div class="form-row row-fluid">                     
+					   <div class="span4">
+					        <div class="row-fluid">
+					             <label class="form-label span4" for="code">编码</label>
+					             <input class="span8 focused" id="code" name="code" type="text" value="${parent.code}" />
+					        </div>
+					    </div>
+    					<div class="span4">
+    						<div class="row-fluid">
+    							 <label class="form-label span6" for="name">名称</label>
+    							 <input class="span6 tip" id="name" name="name" type="text" value="${parent.name}"  title="This is some tooltip" />
+    						</div>
+    					</div> 
+    					<div class="span4">
+    						 <div class="row-fluid">
+    							  <label class="form-label span6" for="orderNo">顺序</label>
+    						      <input class="span6" id="orderNo" name="orderNo" value="${parent.orderNo}" type="text" />
+    						 </div>
+    					</div>                   
+    			</div>
+    		</div>
+        </c:if>	 
+        <div class="content noPad">
+            <table id="example" class="responsive dynamicTable display table table-bordered" width="100%">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>编码</th>
+                    <th>名称</th>
+                    <th>menuUrl</th>   
+                    <th>子菜单</th>
+                    <th>权限</th>
+                    <th>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <tr th:each="obj : ${resLst}">
+                	<td th:text="${obj?.id}">1</td>
+                	<td th:text="${obj?.code}">1</td>
+                	<td th:text="${obj?.name}">1</td>
+                	<td th:text="${obj?.menuUrl}">1</td>
+                	<td ><a th:href="@{/admin/menu/parent.do(parentId=${obj.id})}">查看</a></td>
+                	<td ><a th:href="@{/admin/menu/parent.do(parentId=${obj.id})}">查看</a></td>
+                	<td ><a th:href="@{/admin/menu/parent.do(parentId=${obj.id})}">修改</a>
+                			<a th:href="@{/admin/menu/parent.do(parentId=${obj.id})}">删除</a></td>
+                </tr>
+                
+                </tbody>
+            </table>
+        </div>
+
+    </div><!-- End .box -->
+</div><!-- End .span12 -->
+</div><!-- End .row-fluid -->
+</div><!-- End contentwrapper -->
+</div>
+</body>
+
+</html>

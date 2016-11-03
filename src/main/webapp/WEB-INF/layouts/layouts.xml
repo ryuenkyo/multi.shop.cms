@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE tiles-definitions PUBLIC  
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="blank.definition" template="/WEB-INF/template/blank.jsp">
+	 	<put-attribute name="main-content"	value="" /> 
+	</definition>
+    <definition name="site.definition" template="/WEB-INF/template/site/index.jsp">
+		<put-attribute name="title" 	value="Home" />
+		<put-attribute name="header" 	value="/WEB-INF/template/site/header.jsp" />
+		<put-attribute name="main-content" 		value="" />
+		<put-attribute name="footer" 	value="/WEB-INF/template/site/footer.jsp" />
+	</definition>
+	
+	<definition name="admin.index.definition" template="/WEB-INF/template/admin/index_content.jsp">
+		<put-attribute name="title" 	value="Home" />
+		<put-attribute name="header" 	value="/WEB-INF/template/admin/header.jsp" />
+		<put-attribute name="main-sidebar" 		value="" />
+		<put-attribute name="main-content" 		value="" />
+		<put-attribute name="footer" 	value="/WEB-INF/template/admin/footer.jsp" />
+	</definition>
+	
+	<definition name="admin.definition" template="/WEB-INF/template/admin/index.jsp">
+		<put-attribute name="title" 	value="Home" />
+		<put-attribute name="header" 	value="/WEB-INF/template/admin/header.jsp" />
+		<put-attribute name="main-sidebar" 		value="" />
+		<put-attribute name="main-content" 		value="" />
+		<put-attribute name="footer" 	value="/WEB-INF/template/admin/footer.jsp" />
+	</definition>
+	<definition name="admin.add.definition" template="/WEB-INF/template/admin/add.jsp">
+		<put-attribute name="title" 	value="Home" />
+		<put-attribute name="header" 	value="/WEB-INF/template/admin/header.jsp" />
+		<put-attribute name="main-sidebar" 		value="" />
+		<put-attribute name="page-content" 		value="" />
+		<put-attribute name="footer"	value="/WEB-INF/template/admin/footer.jsp" />
+	</definition>
+	<definition name="admin.edit.definition" template="/WEB-INF/template/admin/edit.jsp">
+		<put-attribute name="title" 	value="Home" />
+		<put-attribute name="header" 	value="/WEB-INF/template/admin/header.jsp" />
+		<put-attribute name="main-sidebar" 		value="" />
+		<put-attribute name="page-content" 		value="" />
+		<put-attribute name="page-right" 		value="" />
+		<put-attribute name="footer" 	value="/WEB-INF/template/admin/footer.jsp" />
+	</definition>
+	<definition name="admin.list.definition" template="/WEB-INF/template/admin/main_list.jsp">
+		<put-attribute name="title" 	value="Home" />
+		<put-attribute name="header" 	value="/WEB-INF/template/admin/header.jsp" />
+		<put-attribute name="main-sidebar" 		value="" />
+		<put-attribute name="table-body" 	value="" />
+		<put-attribute name="table-pagination" 	value="/WEB-INF/template/admin/table_pagination.jsp" />
+		<put-attribute name="footer" 	value="/WEB-INF/template/admin/footer.jsp" />
+	</definition>
+	<definition name="admin.all.definition" template="/WEB-INF/template/admin/all.jsp">
+		<put-attribute name="title" 	value="Home" />
+		<put-attribute name="header" 	value="/WEB-INF/template/admin/header.jsp" />
+		<put-attribute name="main-sidebar" 		value="" />
+		<put-attribute name="page-content" 		value="" />
+		<put-attribute name="footer" 	value="/WEB-INF/template/admin/footer.jsp" />
+	</definition>
+	<definition name="admin.login.definition" template="/WEB-INF/template/admin/login.jsp">
+		<put-attribute name="title" 	value="Home" />
+		<put-attribute name="main-content" 		value="" />
+	</definition>
+	<definition name="table.definition" template="/WEB-INF/template/admin/table_content.jsp">
+		<put-attribute name="table-body" 	value="" />
+		<put-attribute name="table-pagination" 	value="/WEB-INF/template/admin/table_pagination.jsp" />
+	</definition>
+</tiles-definitions>
