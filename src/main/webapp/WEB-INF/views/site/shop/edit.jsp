@@ -14,7 +14,7 @@
 	</div>
 	<div class="l_bottom">
 		<div class="b_img">
-	    	<img src="${nginxUrl}${shop.logo}" alt="" />
+	    	<img id="img0" src="${nginxUrl}${shop.logo}" alt="" />
 	    	<input id="fileName" type="file" name="fileName"/>
 	    </div>
 	    <div class="b_list">	    
@@ -39,5 +39,31 @@
 		$('#fileName').ajaxfileupload({
 			  action: '${appPath}/biz/upload_file/file_add.do?fkId=${shop.id}&type=image&imageType=shop&code=logo'
 			});
+		$("#fileName").change(function(){
+			var objUrl = getObjectURL(this.files[0]) ;
+			console.log("objUrl = "+objUrl) ;
+			if (objUrl) {
+				$("#img0").attr("src", objUrl) ;
+			}
+		});
+		$('div').imagefit({
+		    mode: 'outside',
+		    force : 'false',
+		    valign : 'middle'
+		});
+
+		//建立一個可存取到該file的url
+		function getObjectURL(file) {
+			var url = null ; 
+			if (window.createObjectURL!=undefined) { // basic
+				url = window.createObjectURL(file) ;
+			} else if (window.URL!=undefined) { // mozilla(firefox)
+				url = window.URL.createObjectURL(file) ;
+			} else if (window.webkitURL!=undefined) { // webkit or chrome
+				url = window.webkitURL.createObjectURL(file) ;
+			}
+			return url ;
+		}
+			
     });
 </script>	

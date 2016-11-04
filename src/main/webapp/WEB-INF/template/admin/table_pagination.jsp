@@ -27,7 +27,7 @@
 			postfixNum = (pageCount-1);
 		} 
 	}
-		System.out.println("prefixNum: "+prefixNum+",postfixNum:"+postfixNum+",pageCount"+pageCount);
+		logger.info("prefixNum: "+prefixNum+",postfixNum:"+postfixNum+",pageCount"+pageCount);
 %>
 <c:if test="${!empty resLst}">
 <div class="widget-footer">

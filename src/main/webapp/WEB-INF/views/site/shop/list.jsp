@@ -21,7 +21,7 @@
     	<c:forEach items="${shops}" var="obj" varStatus="status">    	
 		<div class="l_bottom">
 	    	<div class="b_img">
-	        	<img src="${nginxUrl}${shop.logo}" alt="" />
+	        	<img src="${nginxUrl}${obj.logo}" alt="" />
 	        </div>
 	        <div class="b_list">
 	        	<p>店铺名称：${obj.shortName}</p>
