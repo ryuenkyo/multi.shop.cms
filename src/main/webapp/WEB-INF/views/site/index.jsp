@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/include.inc.jsp"%>
+<%@ include file="/image.upload.jsp"%>
 <script type="text/javascript" src="${siteTempletDir}/js/jquery.js"></script>
 <script type="text/javascript" src="${siteTempletDir}/js/swipe.min.js"></script>
 <script type="text/javascript">
@@ -42,6 +43,14 @@
 	  	</c:forEach>
     </c:if>
 </div>
+ <c:if test="${!empty cats}">
+		 <c:forEach items="${cats}" var="obj" varStatus="status">
+			<div class="goods">
+	
+			    <a href="#" >查看更多...</a>
+			</div>		
+	  	</c:forEach>
+</c:if>
 <div class="goods" id="product_list">
 	
     <a href="#" >查看更多...</a>

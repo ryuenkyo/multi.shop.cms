@@ -18,10 +18,10 @@ import org.springframework.web.servlet.ModelAndView;
 import cn.anlaser.web.impl.SimpleActionImpl;
 import cn.wsalix.annotation.Menu;
 import cn.wsalix.msg.entity.Message;
+import cn.wsalix.msg.form.MessageForm;
 import cn.wsalix.msg.repository.MessageRepository;
 import cn.wsalix.msg.service.MessageService;
 import cn.wsalix.observable.service.SendService;
-import cn.wsalix.user.form.MessageForm;
 //@Menu(code="shop:mess",name="消息管理",menuUrl="/store/mess/list.do")
 @Controller
 @RequestMapping(value = "/admin/mess")

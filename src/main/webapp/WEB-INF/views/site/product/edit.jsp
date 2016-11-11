@@ -30,6 +30,7 @@
     </div>
 	<div class="list"><span>商品库存：</span><input type="text" name="count" value="${product.count}"/> </div>	
 	<div class="list"><span>商品价格：</span><input type="text" id="priceShow" name="priceShow" value="${product.price/100}"/> </div>
+	<div class="list"><span>状态：</span>${product.status}</div>
     
 	<div class="list border"><span>商品备注：</span><input type="text" name="remark" value="${product.remark}"/> </div>
 	<div class="list border b_img">

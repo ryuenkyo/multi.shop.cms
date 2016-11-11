@@ -85,6 +85,7 @@
 				/admin/login.do = adminAuthc
 				/admin/** = adminAuthc
 				/weixin/** = user
+				/site/* = anon
 				/site/login.do = formAuthc
 				/site/profile.do = formAuthc
 				/site/user/** = formAuthc

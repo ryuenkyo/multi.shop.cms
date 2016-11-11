@@ -2,7 +2,7 @@
 <%@ include file="/include.inc.jsp"%>
 <form action="#"  method="POST">
 <input type="hidden" name="id" value="${currInfo.id}" />
-<div class="tittle">个人基本信息</div>
+<div class="tittle">个人信息</div>
 <div class="i_list">
 	<a class="one">
     	<p class="img1">姓名：<span>
@@ -16,17 +16,8 @@
 			</span>
 		</p>
     </a>
-    <a class="one" href="${appPath}/site/user/recommend.do">
-	    	<p class="img3">我的推荐<i></i></p>
-	</a>
-	<a class="one" href="${appPath}/site/user/agent.do">
-	    	<p class="img3">我的代理<i></i></p>
-	</a>
-    <a class="one" href="${appPath}/site/shop/list.do">
-	    	<p class="img3">我的店铺<i></i></p>
-	</a>
-	<a class="one" href="${appPath}/site/product/list.do">
-	    	<p class="img3">我的商品<i></i></p>
+	<a class="one" href="${appPath}/site/user/financial.do">
+	    	<p class="img3">我的财务<i></i></p>
 	</a>
 
 </div>

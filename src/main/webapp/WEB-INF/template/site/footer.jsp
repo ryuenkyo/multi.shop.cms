@@ -30,7 +30,7 @@
 	        <span >商品分类</span>
 	    </a>
 	</c:if>	    
-    <a href="${appPath}/site/user/profile.do" class="f_button">
+    <a href="${appPath}/site/user/index.do" class="f_button">
     	<img src="${siteTempletDir}/images/jbxx.png" alt="" />
         <span >我的</span>
     </a>    

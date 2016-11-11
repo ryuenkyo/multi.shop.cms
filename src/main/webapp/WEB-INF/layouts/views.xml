@@ -24,10 +24,6 @@
 	<definition name="/site/*" extends="blank.definition">
 		<put-attribute name="main-content" value="/WEB-INF/views/site/{1}.jsp" />
 	</definition>
-	<definition name="/site/user/profile" extends="site.definition">
-		<put-attribute name="header" value="" />
-		<put-attribute name="main-content" value="/WEB-INF/views/site/profile.jsp" />
-	</definition>
 
 	<definition name="/site/product/index" extends="blank.definition">
 		<put-attribute name="main-content"
