@@ -119,7 +119,7 @@ public class AdminAction {
 
 	@RequestMapping(value = { "/login" }, method = RequestMethod.POST)
 	public ModelAndView loginPost(Model model) {
-		return new ModelAndView("redirect:/admin/index" + Global.urlSuffix);
+		return new ModelAndView("/admin/index");
 	}
 
 	@Menu(code = "admin")
