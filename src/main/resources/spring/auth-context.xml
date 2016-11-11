@@ -78,14 +78,9 @@
 			</util:map>
 		</property>
 		<property name="filterChainDefinitions">
-			<value>
+			<value><!-- 一旦匹配，不再查找下一条 -->
 				/logout.json = logout
 				/logout.do = logout
-				
-				/admin/login.do = adminAuthc
-				/admin/** = adminAuthc
-				/weixin/** = user
-				/site/* = anon
 				/site/login.do = formAuthc
 				/site/profile.do = formAuthc
 				/site/user/** = formAuthc
@@ -93,9 +88,13 @@
 				/site/*/edit.do = formAuthc
 				/site/*/list.do = formAuthc
 				/site/*/del.do = formAuthc
+				/admin/login.do = adminAuthc
+				/admin/** = adminAuthc
+				/weixin/** = user
 				/user/** = user
 				/finance/** = user
 				/biz/** = user
+				/site/* = anon
 				/** = anon
 			</value>
 		</property>
