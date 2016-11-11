@@ -146,7 +146,7 @@ public class MenuAction extends
 	public ModelAndView myMenu(Model model) {
 		BaseUser user = userUtils.getInUser();
 		model.addAttribute("menus", menuService.findMenusByUserId(user.getId()));
-		return new ModelAndView("menu/my");
+		return new ModelAndView("/menu/my");
 	}
 
 	/**
