@@ -39,13 +39,18 @@
 	            <p>创建时间：${obj.createdDate} </p>
 	            <p>商品分类：${obj.parentCat.name}</p>
 	            <p>商品数量：${obj.count}件</p>
-	            <p>状态：${obj.status}</p>
-	            <p>价格：${obj.price}元
-	            
+	            <p>状态：${obj.status.title}</p>
+	            <p>价格：${obj.price}元	            
 	            	<a href="${appPath}/site/product/del.do?id=${obj.id}">删除</a>
 	            	<a href="${appPath}/site/product/edit.do?id=${obj.id}">修改</a>
-	            	<a href="${appPath}/site/product/onsell.do?id=${obj.id}">上架</a>
-	            	<a href="${appPath}/site/product/undercar.do?id=${obj.id}">上架</a>
+	            	<c:if test="${obj.status=='onsell'}">
+		    			<a href="${appPath}/site/product/undercar.do?id=${obj.id}">下架</a>
+		    		</c:if>
+		    		<c:if test="${obj.status!='onsell'}">
+		    			<a href="${appPath}/site/product/onsell.do?id=${obj.id}">上架</a>
+		    		</c:if>
+	            	
+	            	
 	        </div>
 	    </div>
 	     </c:forEach>

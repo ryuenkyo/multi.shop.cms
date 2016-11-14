@@ -5,7 +5,6 @@
 <link rel="stylesheet" href="${siteTempletDir}/css/goods.css" />
 <form action="#"  method="POST">
 <input type="hidden" name="shopId" value="${shop.id}" />
-<input type="hidden" name="price" id="price" value="${product.price}" />
 <div class="list">
 	<div class="l_top">
 		<p>修改商品<span style="color:#ccc;">
@@ -29,9 +28,8 @@
         </select>
     </div>
 	<div class="list"><span>商品库存：</span><input type="text" name="count" value="${product.count}"/> </div>	
-	<div class="list"><span>商品价格：</span><input type="text" id="priceShow" name="priceShow" value="${product.price/100}"/> </div>
-	<div class="list"><span>状态：</span>${product.status}</div>
-    
+	<div class="list"><span>商品价格：</span><input type="text" name="price" value="${product.price/100}"/> </div>
+   
 	<div class="list border"><span>商品备注：</span><input type="text" name="remark" value="${product.remark}"/> </div>
 	<div class="list border b_img">
     	<img id="img0" src="${nginxUrl}${product.logo}" alt="" />
@@ -64,8 +62,8 @@
 		    valign : 'middle'
 		});
 		$("#priceShow").on('input',function(e){ 
-			   		$("#price").val($(this).val()*100); 
-				});  
+			   	$("#price").val($(this).val()*100); 
+		});  
 		//建立一個可存取到該file的url
 		function getObjectURL(file) {
 			var url = null ; 

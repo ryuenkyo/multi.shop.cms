@@ -100,16 +100,21 @@ public abstract class CommonActionImpl<Form extends CommonForm, Service extends 
 	@Override
 	public ModelAndView toAdd(@Valid Form form, BindingResult result,
 			Model model) {
-		toAddNew(model);
+		toAddNew(form,model);
 		return new ModelAndView(module() + "/add");
 	}
 
 	@Override
-	public void toAddNew(Model model) {
-		Entity entity = getService().getNew();
+	public void toAddNew(Form form, Model model) {
+		Entity entity = getService().getNew(form);
 		if (entity != null) {
 			model.addAttribute("form", entity);
 		}
+	}
+
+	@Override
+	public void toAddNew(Model model) {
+		toAddNew(null, model);
 	}
 
 	@Override

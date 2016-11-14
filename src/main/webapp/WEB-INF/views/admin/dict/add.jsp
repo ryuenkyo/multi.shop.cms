@@ -33,13 +33,13 @@
                                         <input id="value" class="span11" type="text" name="value" value="${form.value}">
                                     </div>
                                     
-                                    <label for="status" class="control-label span2">状态<span class="required">*</span></label>
+                                    <label for="status" class="control-label span2"><span class="required">*</span></label>
                                     <div class="controls span4">
-                                       <select id="status" class="selectpicker input-medium" data-style="btn-info" name="status">
+                                       <%--<select id="status" class="selectpicker input-medium" data-style="btn-info" name="status">
                                             <c:forEach items="${dictStatus}" var="msItem" varStatus="bankStatus">
                                             	<option value="${msItem.code}">${msItem.title}</option>
                                             </c:forEach>
-                                        </select>
+                                        </select>--%>
                                     </div>
                                 </li>
                                 

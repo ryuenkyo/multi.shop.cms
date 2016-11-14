@@ -25,6 +25,8 @@ public interface CommonAction<Form extends CommonForm, Service extends CommonSer
 
 	public String module();
 
+	public void toAddNew(Form form,Model model);
+	
 	public void toAddNew(Model model);
 
 	@RequestMapping(value = "/item", method = RequestMethod.GET)

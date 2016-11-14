@@ -475,4 +475,20 @@ public class ProductAction
 		productService.origin(form);
 		return new ModelAndView(module() + "/origin");
 	}
+
+	@RequestMapping(value = { "/pass" }, method = RequestMethod.GET)
+	public ModelAndView shopPass(ProductForm form, Model model) {
+		if (form.getId() != null) {
+			productService.pass(form.getId());
+		}
+		return new ModelAndView("redirect:/site/shop/list" + Global.urlSuffix);
+	}
+
+	@RequestMapping(value = { "/un_pass" }, method = RequestMethod.GET)
+	public ModelAndView shopUnPass(ProductForm form, Model model) {
+		if (form.getId() != null) {
+			productService.unPass(form);
+		}
+		return new ModelAndView("redirect:/site/shop/list" + Global.urlSuffix);
+	}
 }
