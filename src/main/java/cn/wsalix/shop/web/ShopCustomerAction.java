@@ -46,7 +46,7 @@ public class ShopCustomerAction extends
 
 	@Override
 	public String module() {
-		return "shop/customer";
+		return "/shop/customer";
 	}
 
 	@Override

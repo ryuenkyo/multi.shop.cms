@@ -28,14 +28,14 @@
 			<properties>
 				<profiles.active>test</profiles.active>
 				<!-- 前台站点模板地址 -->
-				<site.theme.path>http://localhost/cybershop/</site.theme.path>
+				<site.theme.path>http://192.168.1.101/cybershop/</site.theme.path>
 				<!-- 后台站点模板地址 -->
-				<admin.theme.path>http://localhost/91wow/theme/admin/</admin.theme.path>
+				<admin.theme.path>http://192.168.1.101/91wow/theme/admin/</admin.theme.path>
 				<ftl.path>/opt/ftl</ftl.path>
 				<!-- 上传文件保存地址 -->
 				<save.file.path>c:\\tools\\nginx-1.9.6\\html\\cybershop\\</save.file.path>
 				<!-- 上传文件访问地址 -->
-				<nginx.url>http://localhost/cybershop/</nginx.url>
+				<nginx.url>http://192.168.1.101/cybershop/</nginx.url>
 				<db.driver>com.mysql.jdbc.Driver</db.driver>
 				<db.url>jdbc:mysql://localhost:3306/shop?autoReconnect=true</db.url>
 				<db.username>root</db.username>

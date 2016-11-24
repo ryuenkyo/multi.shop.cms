@@ -70,6 +70,9 @@
 		<put-attribute name="main-sidebar" value="/menu/my_menu.do" />
 		<put-attribute name="page-content" value="/WEB-INF/views/{1}/{2}/edit.jsp" />
 	</definition>
-
+	<definition name="/*/*/list" extends="admin.list.definition">
+		<put-attribute name="main-sidebar" value="/menu/my_menu.do" />
+		<put-attribute name="table-body" value="/WEB-INF/views/{1}/{2}/list.jsp" />
+	</definition>
 
 </tiles-definitions>

@@ -72,7 +72,7 @@
                                 
                                 <li class="section-form">
                                     <h4>个人中心
-                                    	<a href="${appPath}/user_info/user/edit.do?id=${user.id}" class="btn fontello-icon-edit" type="button">查看</a>
+                                    	<a href="${appPath}/user/user_info/edit.do?id=${user.id}" class="btn fontello-icon-edit" type="button">查看</a>
                                     </h4>
                                 </li>
                                 <!-- // section form divider -->

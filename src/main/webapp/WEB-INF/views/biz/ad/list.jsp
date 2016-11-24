@@ -20,7 +20,6 @@
             <th scope="col">ID <span class="column-sorter"></span></th>
             <th scope="col">编码 <span class="column-sorter"></span></th>
             <th scope="col">标题<span class="column-sorter"></span></th>
-            <th scope="col">类型 <span class="column-sorter"></span></th>
 
             <th scope="col">状态 <span class="column-sorter"></span></th>
             <th scope="col">操作 <span class="column-sorter"></span></th>
@@ -32,7 +31,6 @@
                 <td>${status.index+1}</td>
             	<td>${obj.code}</td>
                 <td>${obj.title}</td>
-                <td>${obj.type.name}</td>
                 <td>${obj.status.title}</td>
                 <td><a href="${appPath}/biz/ad/edit.do?id=${obj.id}">修改<a>
                 	<a href="${appPath}/biz/ad/del.do?id=${obj.id}">删除<a>

@@ -4,7 +4,7 @@
 <div class="list">
 	<c:if test="${empty orders}">
 		<div class="l_top">
-	    	<p>没有订单<span style="color:#ccc;"><a href="${appPath}/site/shop/index.do?shopId=1">去购买</a></span></p>        
+	    	<p>没有订单<span style="color:#ccc;"><a href="${appPath}/site/shop/index.do?id=1">去购买</a></span></p>        
 	    </div>
     </c:if>   
     <c:if test="${empty orders}">

@@ -157,7 +157,7 @@
                     <p>Backend and Frontend interface for web &amp; wsalix development. <br />
                         All rights reserved.</p>
                 </div>
-                
+              <!-- //  
                 <ul class="nav nav-center well well-impressed well-small" style="margin-top: 90px">
                     <li class="active"><a href="login-01.html" class="link">Black</a></li>
                     <li class="divider-vertical line"></li>
@@ -166,7 +166,7 @@
                     <li><a href="login-02.html" class="link">Base</a></li>
                     <li class="divider-vertical line"></li>
                     <li><a href="login-03.html" class="link">SignIn</a></li>
-                </ul>
+                </ul>-->
             </div>
             <!-- // sign-content -->
             

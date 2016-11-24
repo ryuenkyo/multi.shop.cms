@@ -19,7 +19,7 @@
     <c:if test="${!empty products}">
     	<div class="l_top">
 	    	<p>商品列表<span style="color:#ccc;">
-				<a href="${appPath}/site/product/add.do">我的购物车</a>
+				<a href="${appPath}/site/shop_cart/list.do">我的购物车</a>
 			</span></p>        
 	    </div>
     	<c:forEach items="${products}" var="obj" varStatus="status">    	
@@ -32,8 +32,10 @@
 	            <p>创建时间：${obj.createdDate} </p>
 	            <p>商品分类：${obj.parentCat.name}	            </p>
 	            <p>商品数量：${obj.count}件</p>
-	            <p>价格：${obj.price}元	            	
-	            	<a href="${appPath}/site/product/edit.do?id=${obj.id}">购买</a>
+	            <p>价格：${obj.price}元   </p>
+	            <p>购买：1	            	
+	            	<a href="${appPath}/site/shop_cart/decrease.do?id=${obj.id}">-</a>
+	            	<a href="${appPath}/site/shop_cart/increment.do?id=${obj.id}">+</a>
 	            </p>
 	        </div>
 	    </div>

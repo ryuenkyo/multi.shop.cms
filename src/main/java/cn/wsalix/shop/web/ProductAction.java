@@ -108,7 +108,7 @@ public class ProductAction
 			Model model) {
 		Product product = productService.getNew();
 		model.addAttribute("form", product);
-		CategoryForm queryForm=new CategoryForm();
+		CategoryForm queryForm = new CategoryForm();
 		model.addAttribute("catLst", productService.findCatLst(queryForm));
 		model.addAttribute("statusLst", ProductEnum.values());
 		return super.toAdd(form, result, model);
@@ -120,20 +120,25 @@ public class ProductAction
 		if (result.hasErrors()) {
 			ra.addFlashAttribute("form", form);
 			for (FieldError fieldError : result.getFieldErrors()) {
-				ra.addFlashAttribute("org.springframework.validation.BindingResult.result", result);
-				if (fieldError.getField().equals("name")) {	
-					return new ModelAndView("redirect:/" + module() + "/add"+ Global.urlSuffix);
+				ra.addFlashAttribute(
+						"org.springframework.validation.BindingResult.result",
+						result);
+				if (fieldError.getField().equals("name")) {
+					return new ModelAndView("redirect:/" + module() + "/add"
+							+ Global.urlSuffix);
 				}
 				if (fieldError.getField().equals("parentCatId")) {
-					return new ModelAndView("redirect:/" + module() + "/add"+ Global.urlSuffix);
-				}			
+					return new ModelAndView("redirect:/" + module() + "/add"
+							+ Global.urlSuffix);
+				}
 			}
 		}
-		/*if (form.getShopId() != null && form.getShopId() != 0) {
-			super.add(form, result, ra, model);
-			return new ModelAndView("redirect:/" + module() + "/list"
-					+ Global.urlSuffix + "?shopId=" + form.getShopId());
-		}*/
+		/*
+		 * if (form.getShopId() != null && form.getShopId() != 0) {
+		 * super.add(form, result, ra, model); return new
+		 * ModelAndView("redirect:/" + module() + "/list" + Global.urlSuffix +
+		 * "?shopId=" + form.getShopId()); }
+		 */
 		return super.add(form, result, ra, model);
 	}
 
@@ -141,7 +146,7 @@ public class ProductAction
 	@Override
 	public ModelAndView toEdit(@Valid ProductForm form, BindingResult result,
 			Model model) {
-		CategoryForm queryForm=new CategoryForm();
+		CategoryForm queryForm = new CategoryForm();
 		model.addAttribute("catLst", productService.findCatLst(queryForm));
 
 		model.addAttribute("statusLst", ProductEnum.values());
@@ -169,23 +174,27 @@ public class ProductAction
 	@Override
 	public ModelAndView edit(Long id, @Valid ProductForm form,
 			BindingResult result, RedirectAttributes ra, Model model) {
-/*		if (form.getShopId() != null && form.getShopId() != 0) {
-			super.edit(id, form, result, ra, model);
-			return new ModelAndView("redirect:/" + module() + "/list"
-					+ Global.urlSuffix + "?shopId=" + form.getShopId());
-		}*/
+		/*
+		 * if (form.getShopId() != null && form.getShopId() != 0) {
+		 * super.edit(id, form, result, ra, model); return new
+		 * ModelAndView("redirect:/" + module() + "/list" + Global.urlSuffix +
+		 * "?shopId=" + form.getShopId()); }
+		 */
 		if (result.hasErrors()) {
 			ra.addFlashAttribute("form", form);
 			for (FieldError fieldError : result.getFieldErrors()) {
-				ra.addFlashAttribute("org.springframework.validation.BindingResult.result", result);
+				ra.addFlashAttribute(
+						"org.springframework.validation.BindingResult.result",
+						result);
 				if (form.getStatus().ordinal() == ProductEnum.onsell.ordinal()) {
-					if (fieldError.getField().equals("price")) {	
-						return new ModelAndView("redirect:/" + module() + "/add"+ Global.urlSuffix);
+					if (fieldError.getField().equals("price")) {
+						return new ModelAndView("redirect:/" + module()
+								+ "/add" + Global.urlSuffix);
 					}
 				}
 			}
 		}
-		
+
 		return super.edit(id, form, result, ra, model);
 	}
 
@@ -481,7 +490,8 @@ public class ProductAction
 		if (form.getId() != null) {
 			productService.pass(form.getId());
 		}
-		return new ModelAndView("redirect:/site/shop/list" + Global.urlSuffix);
+		return new ModelAndView("redirect:/admin/product/list"
+				+ Global.urlSuffix);
 	}
 
 	@RequestMapping(value = { "/un_pass" }, method = RequestMethod.GET)
@@ -489,6 +499,7 @@ public class ProductAction
 		if (form.getId() != null) {
 			productService.unPass(form);
 		}
-		return new ModelAndView("redirect:/site/shop/list" + Global.urlSuffix);
+		return new ModelAndView("redirect:/admin/product/list"
+				+ Global.urlSuffix);
 	}
 }

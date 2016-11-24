@@ -46,8 +46,8 @@
 	            	<c:if test="${obj.status=='onsell'}">
 		    			<a href="${appPath}/site/product/undercar.do?id=${obj.id}">下架</a>
 		    		</c:if>
-		    		<c:if test="${obj.status!='onsell'}">
-		    			<a href="${appPath}/site/product/onsell.do?id=${obj.id}">上架</a>
+		    		<c:if test="${obj.status=='edit'}">
+		    			<a href="${appPath}/site/product/pub.do?id=${obj.id}">上架</a>
 		    		</c:if>
 	            	
 	            	

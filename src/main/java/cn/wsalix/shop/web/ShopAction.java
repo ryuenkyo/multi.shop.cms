@@ -14,11 +14,12 @@ import cn.wsalix.shop.entity.Shop;
 import cn.wsalix.shop.form.ShopForm;
 import cn.wsalix.shop.repository.ShopRepository;
 import cn.wsalix.shop.service.ShopService;
+
 //@Menu(code="shop:shop",name="店铺管理",menuUrl="/shop/shop/list.do")
 @Controller
-@RequestMapping(value = "/admin/shop")
+@RequestMapping(value = "/shop/main")
 public class ShopAction extends
-		SimpleActionImpl<ShopForm,ShopService,ShopRepository,Shop>{
+		SimpleActionImpl<ShopForm, ShopService, ShopRepository, Shop> {
 	@Autowired
 	private ShopService shopService;
 
@@ -26,22 +27,26 @@ public class ShopAction extends
 	public ShopService getService() {
 		return shopService;
 	}
-	@Menu(code="shop:shop")
+
+	@Menu(code = "shop:shop")
 	@Override
-	public ModelAndView toAdd(ShopForm form, BindingResult result, Model model) {		
+	public ModelAndView toAdd(ShopForm form, BindingResult result, Model model) {
 		return super.toAdd(form, result, model);
 	}
-	@Menu(code="shop:shop")
+
+	@Menu(code = "shop:shop")
 	@Override
 	public ModelAndView toEdit(ShopForm form, BindingResult result, Model model) {
 		// TODO Auto-generated method stub
 		return super.toEdit(form, result, model);
 	}
-	@Menu(code="shop:shop")
+
+	@Menu(code = "shop:shop")
 	@Override
-	public ModelAndView list(ShopForm form,BindingResult result, Model model, Pageable pageable) {
+	public ModelAndView list(ShopForm form, BindingResult result, Model model,
+			Pageable pageable) {
 		// TODO Auto-generated method stub
-		return super.list(form,result, model, pageable);
+		return super.list(form, result, model, pageable);
 	}
 
 }

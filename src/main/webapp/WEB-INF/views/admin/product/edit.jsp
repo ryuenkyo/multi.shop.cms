@@ -75,7 +75,7 @@
                                     </div>
                                 </li>
                                 <!-- // form item -->
-                           
+                            <%--
                                 <li class="control-group">
                                     <label for="status" class="control-label">状态</label>
                                     <div class="controls">
@@ -86,7 +86,7 @@
                                         </select>
                                     </div>
                                 </li>
-                                <!-- // form item -->
+                                // form item --%>
                                 
                             </ul>
                         </fieldset>

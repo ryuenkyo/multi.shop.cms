@@ -16,13 +16,13 @@
 </div>
 <div class="tittle">注册方式选择</div>
 <div class="i_list">
-	<a class="one">
+	<a class="one" href="${appPath}/site/register.do">
     	<p class="img1">普通注册：<span></span>	</p>
     </a>
-	<a class="one">
+	<a class="one" href="${appPath}/site/register.do">
     	<p class="img2">手机号注册：<span></span>	</p>
     </a>
-	<a class="one" href="money.html">
+	<a class="one" href="${appPath}/site/wx_register.do">
     	<p class="img3">微信注册<i></i></p>
     </a>
 </div>

@@ -11,9 +11,9 @@
 	    	<img src="${siteTempletDir}/images/spfb.png" alt="" />
 	        <span >商品列表</span>
 	    </a>
-		<a href="${appPath}/site/cat.do" class="f_button margin">
+		<a href="${appPath}/site/shop_cart/list.do" class="f_button margin">
 	    	<img src="${siteTempletDir}/images/ddlb.png" alt="" />
-	        <span >商品分类</span>
+	        <span >购物车</span>
 	    </a>
 	</c:if>	
 	<c:if test="${!empty shop}">
@@ -25,9 +25,9 @@
 	    	<img src="${siteTempletDir}/images/spfb.png" alt="" />
 	        <span >商品列表</span>
 	    </a>
-		<a href="${appPath}/site/cat.do?shopId=${shop.id}" class="f_button margin">
+		<a href="${appPath}/site/shop_cart/list.do" class="f_button margin">
 	    	<img src="${siteTempletDir}/images/ddlb.png" alt="" />
-	        <span >商品分类</span>
+	        <span >购物车</span>
 	    </a>
 	</c:if>	    
     <a href="${appPath}/site/user/index.do" class="f_button">

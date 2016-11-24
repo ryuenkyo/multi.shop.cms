@@ -52,7 +52,7 @@
 <div class="breadcrumbs-nav hidden-phone">
     <ul id="breadcrumbs" class="breadcrumb">
         <li><a href="${appPath}/admin">
-        	<i class="fontello-icon-home f12"></i> 91wow</a> <span class="divider">/</span></li>
+        	<i class="fontello-icon-home f12"></i> ${sysConfig.sysName}</a> <span class="divider">/</span></li>
         <li class="dropdown"><a href="javascript:void(0);">系统管理 </a> <span class="divider">/</span>
             <ul class="dropdown-menu">
                 <li><a href="javascript:void(0);">Table</a></li>

@@ -16,10 +16,7 @@
 			</span>
 		</p>
     </a>
-	<a class="one" href="${appPath}/site/user/financial.do">
-	    	<p class="img3">我的财务<i></i></p>
-	</a>
-
+	
 </div>
 <div class="button">
 	<input type="submit" value="保存" />

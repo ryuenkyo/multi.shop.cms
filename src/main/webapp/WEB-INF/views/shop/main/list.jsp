@@ -4,7 +4,7 @@
     <div class="navbar-inner no-bg">
         <h4 class="title"><i class="fontello-icon-window"></i>店铺管理 
         	<small>        	
-        		<a href="${appPath}/admin/shop/add.do" class="btn btn-blue">店铺新增</a>
+        		<a href="${appPath}/shop/product/add.do" class="btn btn-blue">店铺新增</a>
 			</small>
 		</h4>
     </div>		

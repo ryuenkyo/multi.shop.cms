@@ -139,7 +139,7 @@ public class UserAction extends
 		return super.edit(id, entity, result, ra,model);
 	}
 
-	@RequestMapping(value = "/profile", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/profile", method = RequestMethod.GET)
 	public ModelAndView profile(Model model) {
 		BaseUser baseUser = userUtils.getInUser();
 		SysUser user=userService.findById(baseUser.getId());
@@ -149,5 +149,5 @@ public class UserAction extends
 		
 		return new ModelAndView(module() + "/profile");
 	}
-
+*/
 }

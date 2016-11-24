@@ -6,7 +6,7 @@
 		<div class="l_top">
 	    	<p>没有商品<span style="color:#ccc;">
 	    		<c:if test="${empty shop}">
-	    			<a href="${appPath}/site/product.do">新增</a>
+	    			<a href="${appPath}/site/product.do">购买</a>
 	    		</c:if>
 	    		<c:if test="${!empty shop}">
 	    			<a href="${appPath}/site/product.do?shopId=${shop.id}<c:if test='${!empty cat}'>&catId=${cat.id}</c:if>">商品列表</a>
@@ -18,7 +18,7 @@
     	<div class="l_top">
 	    	<p>商品数量<span style="color:#ccc;">
 				<c:if test="${empty shop}">
-	    			<a href="${appPath}/site/product.do<c:if test='${!empty cat}'>?catId=${cat.id}</c:if>">新增</a>
+	    			<a href="${appPath}/site/product.do<c:if test='${!empty cat}'>?catId=${cat.id}</c:if>">购买</a>
 	    		</c:if>
 	    		<c:if test="${!empty shop}">
 	    			<a href="${appPath}/site/product.do?shopId=${shop.id}<c:if test='${!empty cat}'>&catId=${cat.id}</c:if>">[${shop.shortName}]商品列表</a>

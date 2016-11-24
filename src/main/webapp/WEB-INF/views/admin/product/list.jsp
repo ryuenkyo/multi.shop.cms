@@ -23,9 +23,10 @@
          <!--     <th scope="col">是否团购<span class="column-sorter"></span></th>-->
             <th scope="col">数量 <span class="column-sorter"></span></th>
             <th scope="col">状态 <span class="column-sorter"></span></th>
+            <th scope="col">操作<span class="column-sorter"></span></th>
             <!--<th scope="col">修改时间<span class="column-sorter"></span></th>-->
             
-            <th scope="col">操作 <span class="column-sorter"></span></th>
+            <th scope="col">修改<span class="column-sorter"></span></th>
         </tr>
     </thead>
     <tbody>
@@ -47,14 +48,15 @@
             	</c:if>
             	<c:if test="${!obj.tuan}">否</c:if>
             </td>--%>
-            <td>${obj.count}</td>
-            <td>[${obj.status.title}]
+            <td><a href="${appPath}/admin/product/stock.do?id=${obj.id}">${obj.count}</a></td>
+            <td>[${obj.status.title}]            </td>            
+            <td> 
             	<c:if test="${obj.status=='edit'}">
-            		<a href="${appPath}/admin/product/onsell.do?id=${obj.id}">上架</a>
+            		<a href="${appPath}/admin/product/onsell.do?id=${obj.id}"></a>
             	</c:if>
-            	<c:if test="${obj.status=='onsell'}">
-            		<a href="${appPath}/admin/product/undercarriage.do?id=${obj.id}">下架</a>
-            		<a href="${appPath}/admin/product/stock.do?id=${obj.id}"></a>
+            	<c:if test="${obj.status=='ready'}">
+            		<a href="${appPath}/admin/product/pass.do?id=${obj.id}" class="btn">通过</a>
+            		<a href="${appPath}/admin/product/un_pass.do?id=${obj.id}" class="btn">不通过</a>
             	</c:if>
             	<c:if test="${obj.count==0}">
             		<a href="${appPath}/admin/product/stock.do?id=${obj.id}"></a>
@@ -62,8 +64,7 @@
             </td>
             
             <td> 
-            	<a href="${appPath}/biz/image_file/relation_list.do?fkId=${obj.id}&imageType=product" class="btn">图片</a>
-            	<a href="${appPath}/admin/product/stock.do?id=${obj.id}" class="btn">库存</a>             	
+            	<!--<a href="${appPath}/biz/image_file/relation_list.do?fkId=${obj.id}&imageType=product" class="btn">图片</a>-->            	
             	<a href="${appPath}/admin/mess/list.do?fkId=${obj.id}&type=product" class="btn">消息</a>
             	<a href="${appPath}/admin/product/edit.do?id=${obj.id}" class="btn">修改<a>
 			</td>

@@ -17,7 +17,7 @@
                                 <li class="control-group">
                                 	<div class="fileupload fileupload-new" data-provides="fileupload">
                                         <div class="fileupload-preview thumbnail" style="width: 200px; height: 120px;">
-                                        	<img src="<c:if test="${!empty form.avatar}">${nginxUrl}${form.avatar}</c:if><c:if test="${empty form.avatar}">http://localhost/default.jpg</c:if>" class="thumbnail">
+                                        	<img src="<c:if test="${!empty form.avatar}">${nginxUrl}${form.avatar}</c:if><c:if test="${empty form.avatar}"></c:if>" class="thumbnail">
                                         </div>
                                         <div> 
                                         	<span class="btn btn-file"> 

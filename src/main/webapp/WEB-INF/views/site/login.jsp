@@ -49,7 +49,7 @@ body{width:100%;height:100%;background:url(${siteTempletDir}/images/bld.jpg) no-
 	    <div class="name"><span>账号：</span><input type="text" name="id_login_username" value=""/></div>
 	    <div class="passward"><span>密码：</span><input type="password" name="id_login_password" value=""/></div>
 	    <div class="login">	    	
-	    	<input id="register" style="float:right;margin-right:32px;background-color:transparent;border:1px solid #fff;color:#fff;" type="button" value="注册" />
+	    	<input id="register" style="float:right;margin-right:32px;background-color:tomato;border:1px solid #fff;color:#fff;" type="button" value="注册" />
 	    	<input id="register" style="float:right;margin-right:32px;background-color:slategrey;border:1px solid #fff;color:#fff;" type="button" value="找回密码" />
 	    	<input style="float:right;margin-right:32px;background-color:slateblue;border:1px solid #fff;color:#fff;" type="submit" value="登录" />
 
@@ -65,7 +65,7 @@ body{width:100%;height:100%;background:url(${siteTempletDir}/images/bld.jpg) no-
 <script type="text/javascript">
      $(document).ready(function(){
 		$("#register").click(function(){
-			window.location.href="${appPath}/site/register.do"; 
+			window.location.href="${appPath}/site/reg_mode.do"; 
 		});
     });
 </script>

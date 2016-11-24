@@ -43,15 +43,27 @@
 	  	</c:forEach>
     </c:if>
 </div>
- <c:if test="${!empty cats}">
-		 <c:forEach items="${cats}" var="obj" varStatus="status">
-			<div class="goods">
-	
-			    <a href="#" >查看更多...</a>
-			</div>		
-	  	</c:forEach>
+
+<c:if test="${!empty proMap}">
+	 <c:forEach items="${proMap}" var="pros">
+		<div class="goods">
+			<c:if test="${!empty pros.value}">
+			 	<c:forEach items="${pros.value}" var="product" varStatus="status">
+				   <div class="goods_box">
+				    		<div class="g_l">
+				    			<img src="${nginxUrl}${product.logo}">
+				        </div>
+				        <div class="g_r">
+				        	<p>名称：${product.name}</p>
+				            <p>单价：${product.price}元<span style="float:right;">数量：${product.count}件</span></p>
+				            <p><input type="button" value="购买" />
+				            	<span>售出：120件</span></p>
+				        </div>
+				  </div>
+				</c:forEach>
+			</c:if>
+			<a href="${appPath}/site/product.do?parentCatId=${pros.key}" >查看更多...</a>
+		</div>	
+  	</c:forEach>
 </c:if>
-<div class="goods" id="product_list">
-	
-    <a href="#" >查看更多...</a>
-</div>
+
