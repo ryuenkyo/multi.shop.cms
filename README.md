@@ -1,4 +1,4 @@
-##  multi cms商城系统
+##  multi cms商城系统<未完成>
 
 ------------------------------------------------
 
@@ -16,7 +16,7 @@ Apache Shiro为权限授权层，Ehcahe对常用数据进行缓存，SLF4J 1+Log
 
 multi cms系統目前包含以下模块
  **后台系统** ，包括用户管理、角色管理、菜单管理、产品管理、店铺管理、分类管理、广告管理、订单管理等。
- **商城系统** ，包括用户登录、商品游览、商品购买、账户管理、订单中心、个人中心等。
+ **商城系统** ，包括用户登录/注册、商品游览、商品购买、账户管理、订单中心、个人中心等。
  
  **后台管理模块**
 1.	管理员管理：用户管理、角色管理、菜单管理。
@@ -26,13 +26,12 @@ multi cms系統目前包含以下模块
  **商城系统**
 1.	已完成：用户登录、商品游览、商品购买、账户管理。
 2.	搭建中：商品交易、订单中心。
-3.	未搭建：在线评论、在线提问、个人中心。
 
 
 1、后端
 
 * 核心框架：Spring Framework 4.1.7
-* 安全框架：Apache Shiro 1.2。3
+* 安全框架：Apache Shiro 1.2.3
 * 视图框架：Spring MVC 4.1.7
 * 布局框架：tiles 3.0
 * 任务调度：Spring + Quartz 2.2.3
@@ -41,26 +40,38 @@ multi cms系統目前包含以下模块
 * 缓存框架：Ehcache 2.6
 * 日志管理：SLF4J 1.7、Log4j2 2.7
 * 工具类：Apache Commons、Jackson 2.2
-
+* 图片验证码：kaptcha 0.9
 2、后端
 
 * JS框架：jquery
 * 表格插件：Bootstrap Table
 * 表单验证插件：bootstrapValidator
 * 日期选择插件：Datepicker for Bootstrap
-* 弹层组件：layer2.4
-
-## 快速体验
-
-> 运行项目配置说明
-
+##开发环境说明
+1、JDK1.7+、
+2、eclipse-luna
+3、Maven3.0+、
+4、MySql5+
+> 快速开发
+1，git clone 下载源代码
+	http://git.oschina.net/jaker/wsalix.common
+	http://git.oschina.net/jaker/multi.shop.service
+	http://git.oschina.net/jaker/multi.shop.cms
+2，修改数据库配置文件中数据库连接信息
+	\multi.shop.cms\src\main\resources\spring\data-context.xml
+3，启动
+	CMD启动：mvn jetty:run
+	eclispe:Run jetty
+4,访问
+	http://localhost:8080/multi/admin/
+	http://localhost:8080/multi/site/login.do
+5,默认账号	admin、1234
 ```
-1、具备运行环境：JDK1.7+、Maven3.0+、MySql5+
 
-```
 
-## 其他
-	QQ：304846928  Email：<jskyme@163.com> 
+## 联系方式
+	QQ：304846928  Email：<jskyme@163.com> 微信：anlaser 
+其他：
 
 ## 演示界面
 待添加

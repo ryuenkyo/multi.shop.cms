@@ -34,8 +34,8 @@
 	            <p>商品数量：${obj.count}件</p>
 	            <p>价格：${obj.price}元   </p>
 	            <p>购买：1	            	
-	            	<a href="${appPath}/site/shop_cart/decrease.do?id=${obj.id}">-</a>
-	            	<a href="${appPath}/site/shop_cart/increment.do?id=${obj.id}">+</a>
+	            	<a href="${appPath}/site/shop_cart/decrease.do?productId=${obj.id}">-</a>
+	            	<a href="${appPath}/site/shop_cart/increment.do?productId=${obj.id}">+</a>
 	            </p>
 	        </div>
 	    </div>

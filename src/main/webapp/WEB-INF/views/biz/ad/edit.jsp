@@ -10,7 +10,7 @@
         <div class="span12 well well-nice">
             <div class="row-fluid">
                 <div class="span6 grider-item">
-                    <h4 class="simple-header"><i class="fontello-icon-eye-1"></i> 广告修改</h4>
+                    <h4 class="simple-header"><i class="fontello-icon-eye-1"></i> 广告修改[${form.status.title}]</h4>
                     <div id="previewImage" class="preview-image"> 
                     	<img src="${nginxUrl}${form.logo}"> 
                     </div>
@@ -32,17 +32,13 @@
                             <td>${form.title}</td>
                         </tr>
                         <tr>
-                            <th>分类</th>
-                            <td>${form.type.name}</td>
-                        </tr>
-                        <tr>
                             <th>Dimensions</th>
                             <td>1200 x 980</td>
                         </tr>
                     </table>-->
                 </div>
                 <div class="span6 grider-item">                    
-                        <h4 class="simple-header"><a class="btn btn-yellow pull-right">图片管理${form.singleImage}</a><i class="fontello-icon-edit"></i> 快速修改</h4>
+                        <h4 class="simple-header"><a class="btn btn-yellow pull-right">图片管理</a><i class="fontello-icon-edit"></i> 快速修改</h4>
                         <fieldset class="form-dark ">
                             <ul class="form-list">
                                 <li class="control-group">
@@ -59,16 +55,12 @@
                                         <input id="title" class="input-block-level" type="text" name="title" value="${form.title}">
                                     </div>
                                 </li>
-                                <!-- // form item -->
-                                
                                 <li class="control-group">
-                                    <label for="fileCaption" class="control-label">单图</label>
-                                    <div class="controls" >
-                                        <input type="checkbox" checked="checked" disabled>
+                                    <label for="title" class="control-label">网址</label>
+                                    <div class="controls">
+                                        <input id="title" class="input-block-level" type="text" name="httpUrl" value="${form.httpUrl}">
                                     </div>
                                 </li>
-                                <!-- // form item -->
-                                
                                 <li class="control-group">
                                     <label for="fileDescript" class="control-label">简介</label>
                                     <div class="controls">
@@ -83,26 +75,15 @@
                                     <label for="catId" class="control-label">广告分类</label>
                                     <div class="controls">
                                         <select id="catId" class="selectpicker input-medium" data-style="btn-info" name="catId">
-                                            <c:forEach items="${typeLst}" var="typeObj" varStatus="typeStatus">
-                                            	<option value="${typeObj.id}" <c:if test="${typeObj ==form.type}">selected </c:if>>${typeObj.name}</option>
+                                            <c:forEach items="${catLst}" var="typeObj" varStatus="typeStatus">
+                                            	<option value="${typeObj.id}" <c:if test="${typeObj.id ==form.category.id}">selected </c:if>>${typeObj.name}</option>
                                             </c:forEach>
                                         </select>
                                     </div>
                                 </li>
                                 <!-- // form item -->
                                 
-                                <li class="control-group">
-                                    <label for="status" class="control-label">状态</label>
-                                    <div class="controls">
-                                        <select id="status" class="selectpicker input-medium" data-style="btn-info" name="status">
-                                            <c:forEach items="${statusLst}" var="staObj" varStatus="adStatus">
-                                            	<option value="${staObj}" <c:if test="${staObj ==form.status}">selected </c:if>>${staObj.title}</option>
-                                            </c:forEach>
-                                        </select>
-                                    </div>
-                                </li>
-                                <!-- // form item -->
-                                
+
                             </ul>
                         </fieldset>
                         <!-- // fieldset Input -->

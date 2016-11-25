@@ -117,17 +117,12 @@
                             <h3 class="no-margin-top"><i class="fontello-icon-users"></i> 注册新账号</h3>
                             <form class="form-tied margin-00" method="post" action="${appPath}/register.do" name="login_form">
                                 <fieldset>
-                                    <legend class="two"><span>账号信息</span></legend>
+                                	<legend class="two"><span>账号信息</span></legend>
                                     <ul>
-                                        <li>
-                                            <input id="idNickname" class="input-block-level" type="text" name="nickname" placeholder="昵称">
-                                        </li>
                                         <li>
                                             <input id="idUsername" class="input-block-level" type="text" name="username" placeholder="用户名">
                                         </li>
                                     </ul>
-                                </fieldset>
-                                <fieldset>
                                     <legend class="two"><span>密码</span></legend>
                                     <ul>
                                         <li>
