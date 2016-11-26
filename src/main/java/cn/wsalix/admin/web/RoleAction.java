@@ -53,12 +53,6 @@ public class RoleAction extends
 	}
 
 	@Override
-	public String module() {
-		return "admin/role";
-	}
-	
-
-	@Override
 	public void previous(Model model, RoleForm form) {
 		//model.addAttribute("roleStatus", RoleEnum.values());
 		super.previous(model, form);

@@ -28,6 +28,7 @@ import cn.wsalix.admin.service.UserService;
 import cn.wsalix.config.SysConfig;
 import cn.wsalix.constant.Global;
 import cn.wsalix.login.form.WxCodeForm;
+import cn.wsalix.shop.init.ShopUserInit;
 import cn.wsalix.weixin.entity.WxConfig;
 import cn.wsalix.weixin.entity.WxMessage;
 import cn.wsalix.weixin.entity.WxUser;
@@ -53,7 +54,7 @@ public class WeiXinAction extends WeixinSupport {
 	protected String jsonIndex(@PathVariable Long wxConfigId,
 			HttpServletRequest request) {
 		String paraLines = getInfo(request);
-		WxConfig wxConfig = wxConfigService.findByAdmin();
+		WxConfig wxConfig = wxConfigService.findByUser(ShopUserInit.adminUser.getId());
 		logger.info("weixin bind:" + paraLines);
 		if (wxConfig != null && wxConfig.getWxToken() != null
 				&& !wxConfig.getWxToken().equals("")
@@ -134,7 +135,7 @@ public class WeiXinAction extends WeixinSupport {
 		wxMessage.setMsgSignature(msgSignature);
 		wxMessage.setWxConfig(wxConfig);
 		// wxMessage.setBody(body);
-		wxMessage.setXmlContent(body);		
+		wxMessage.setXmlContent(body);
 		return processRequest(wxMessage);
 	}
 
@@ -172,12 +173,35 @@ public class WeiXinAction extends WeixinSupport {
 		if (wxConfigId != null && wxConfigId != 0) {
 			wxConfig = wxConfigService.findByConfigId(wxConfigId);
 		} else {
-			wxConfig = wxConfigService.findByAdmin();
+			wxConfig = wxConfigService.findByUser(ShopUserInit.adminUser.getId());
 		}
 		String paraLines = getInfo(request);
 		logger.info("redirect_uri:" + paraLines);
 		register(wxConfig, form);
 		return new ModelAndView("site/register");
+	}
+
+	@RequestMapping(value = { "/{wxConfigId}/wx_register" }, method = RequestMethod.GET)
+	public ModelAndView wxRegister(@PathVariable Long wxConfigId,
+			@Valid WxCodeForm form, BindingResult result, Model model) {
+		logger.info("register[code]:" + form.getCode());
+		WxConfig wxConfig = null;
+		if (wxConfigId != null && wxConfigId != 0) {
+			wxConfig = wxConfigService.findByConfigId(wxConfigId);
+		} else {
+			wxConfig = wxConfigService.findByUser(ShopUserInit.adminUser.getId());
+		}
+		if (result.hasErrors()) {
+			for (FieldError fieldError : result.getFieldErrors()) {
+				if (fieldError.getField().equals("code")) {
+					logger.info("register:" + oauth2(wxConfig, "wx_register"));
+					return new ModelAndView("redirect:"
+							+ oauth2(wxConfig, "wx_register"));
+				}
+			}
+		}
+		register(wxConfig, form);
+		return new ModelAndView("redirect:/site/user/index" + Global.urlSuffix);
 	}
 
 	@RequestMapping(value = { "/{wxConfigId}/reg" }, method = RequestMethod.GET)
@@ -188,12 +212,11 @@ public class WeiXinAction extends WeixinSupport {
 		if (wxConfigId != null && wxConfigId != 0) {
 			wxConfig = wxConfigService.findByConfigId(wxConfigId);
 		} else {
-			wxConfig = wxConfigService.findByAdmin();
+			wxConfig = wxConfigService.findByUser(ShopUserInit.adminUser.getId());
 		}
 		if (form.getCode() == null) {
 			logger.info("register:" + oauth2(wxConfig, "reg"));
-			return new ModelAndView("redirect:"
-					+ oauth2(wxConfig, "reg"));
+			return new ModelAndView("redirect:" + oauth2(wxConfig, "reg"));
 		}
 		return new ModelAndView("site/register");
 	}
@@ -239,13 +262,12 @@ public class WeiXinAction extends WeixinSupport {
 		if (wxConfigId != null && wxConfigId != 0) {
 			wxConfig = wxConfigService.findByConfigId(wxConfigId);
 		} else {
-			wxConfig = wxConfigService.findByAdmin();
+			wxConfig = wxConfigService.findByUser(ShopUserInit.adminUser.getId());
 		}
 		if (result.hasErrors()) {
 			for (FieldError fieldError : result.getFieldErrors()) {
 				if (fieldError.getField().equals("code")) {
-					logger.info("register:"
-							+ oauth2(wxConfig, "register"));
+					logger.info("register:" + oauth2(wxConfig, "register"));
 					return new ModelAndView("redirect:"
 							+ oauth2(wxConfig, "register"));
 				}
@@ -264,13 +286,12 @@ public class WeiXinAction extends WeixinSupport {
 		if (wxConfigId != null && wxConfigId != 0) {
 			wxConfig = wxConfigService.findByConfigId(wxConfigId);
 		} else {
-			wxConfig = wxConfigService.findByAdmin();
+			wxConfig = wxConfigService.findByUser(ShopUserInit.adminUser.getId());
 		}
 		if (result.hasErrors()) {
 			for (FieldError fieldError : result.getFieldErrors()) {
 				if (fieldError.getField().equals("code")) {
-					logger.info("register:"
-							+ oauth2(wxConfig, "register"));
+					logger.info("register:" + oauth2(wxConfig, "register"));
 					return new ModelAndView("redirect:"
 							+ oauth2(wxConfig, "register"));
 				}
@@ -283,7 +304,6 @@ public class WeiXinAction extends WeixinSupport {
 		 * user.getWxUser()); return new ModelAndView("site/index");
 		 */
 	}
-
 
 	@RequestMapping(value = { "/{wxConfigId}/demo_user_center" }, method = RequestMethod.GET)
 	public ModelAndView oauth2(Model model) {

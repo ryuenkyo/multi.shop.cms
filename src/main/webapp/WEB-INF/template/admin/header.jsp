@@ -17,7 +17,8 @@
 	            </ul>
 	            <ul class="nav">
 	                <li class="active"> <a href="${appPath}/admin/">首页</a> </li>
-	                <li> <a href="${appPath}/admin/task.do">任务</a> </li>
+	                <li> <a href="${appPath}/trade/main.do">商户</a> </li>
+	                <li> <a href="${appPath}/customer/main.do">拥护</a> </li>
 	                <li> <a href="${appPath}/admin/calendar.do"><span class="fontello-icon-calendar"></span>日程</a> </li>
 	                <li> <a href="${appPath}/admin/contacts.do"><span class="fontello-icon-users"></span>通讯录</a> </li>
 	                <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><span class="fontello-icon-list-1"></span>自定义 <b class="caret"></b></a>

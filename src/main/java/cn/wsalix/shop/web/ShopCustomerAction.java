@@ -24,7 +24,7 @@ import cn.wsalix.admin.web.UserAction;
 import cn.wsalix.annotation.Menu;
 import cn.wsalix.constant.Global;
 import cn.wsalix.observable.service.RegisterService;
-import cn.wsalix.type.UserTypeEnum;
+import cn.wsalix.shop.init.ShopRoleInit;
 
 //@Menu(code="shop:customer",name="客户管理")
 @Controller
@@ -70,7 +70,8 @@ public class ShopCustomerAction extends
 	@Override
 	public ModelAndView list(UserForm form, BindingResult result, Model model,
 			Pageable pageable) {
-		form.setUserType(UserTypeEnum.normal);
+		form.setRoleId(ShopRoleInit.employeeRole.getId());
+		//form.setUserType(UserTypeEnum.normal);
 		// form.setThirdType(UserRegTypeEnum.normal);
 		// form.setThirdType(UserRegTypeEnum.qq);
 		// form.setThirdType(UserRegTypeEnum.weixin);

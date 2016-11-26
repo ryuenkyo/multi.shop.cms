@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/include.inc.jsp"%>
 <script type="text/javascript" src="${siteTempletDir}/js/jquery.js"></script>
 <!doctype html>
 <html>
@@ -45,11 +46,10 @@ body{width:100%;height:100%;background:url(${siteTempletDir}/images/bld.jpg) no-
 
 <body>
 	<form method="post" action="#" name="login_form">
-		<div class="tittle">注册页</div>
+		<div class="tittle">注册页<form:errors path="result.code" cssClass="error" /></div>
 	    <div class="box">
-		    <div class="name"><span>手机：</span><input type="text" name="id_login_username" value=""/></div>
-		    <div class="code"><span>邀请码：</span><input type="text" name="id_login_username" value=""/></div>
-		    <div class="passward"><span>密码：</span><input type="password" name="id_login_password" value="" disabled="true"/></div>
+		    <div class="name"><span>手机：</span><input type="text" name="username" value=""/></div>
+		    <div class="passward"><span>密码：</span><input type="password" name="password" value=""/></div>
 		    <div class="login">
 		    	<input style="float:right;background-color:#eb4f38;color:#fff;" type="submit" value="注册" />
 		    	<input id="toLogin" style="float:right;margin-right:32px;background-color:transparent;border:1px solid #fff;color:#fff;" type="button" value="我有账号"/>

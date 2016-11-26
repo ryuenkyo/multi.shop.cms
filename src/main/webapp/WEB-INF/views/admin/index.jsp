@@ -16,11 +16,11 @@
                             <div class="row-fluid">
                                 <div class="span12 grider-item">
                                     <ul class="nav nav-well">
-                                        <li><a class="well well-black" href="${appPath}/admin/user/list.do">
+                                        <li><a class="well well-black" href="${appPath}/admin/user/customer_list.do">
                                         	<i class="fontello-icon-users"></i>
                                             <h4 class="statistic-values pull-right">8765</h4>
                                             	客户管理</a></li>   
-                                       <li><a class="well well-black" href="${appPath}/admin/shop/list.do?orders=lastModifiedDate&direction=DESC"><i class="fontello-icon-basket-2"></i>
+                                       <li><a class="well well-black" href="${appPath}/shop/main/list.do?orders=lastModifiedDate&direction=DESC"><i class="fontello-icon-basket-2"></i>
                                             <h4 class="statistic-values pull-right">15 487</h4>
                                             	店铺管理</a></li>                                     
                                         <li><a class="well well-black" href="${appPath}/admin/product/list.do?orders=lastModifiedDate&direction=DESC"><i class="fontello-icon-basket-2"></i>

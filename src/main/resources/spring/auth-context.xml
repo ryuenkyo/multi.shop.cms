@@ -41,7 +41,7 @@
 	</bean>
 
 	<bean id="shiroDbRealm" class="cn.wsalix.shiro.AuthRealm">
-		<property name="adminAccount" value="${admin.account}" />
+		<!-- <property name="adminAccount" value="${admin.account}" /> -->
 		<property name="userService" ref="userService" />
 		<property name="roleService" ref="roleService" />
 		<property name="loginService" ref="loginService" />

@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import cn.anlaser.admin.BaseUser;
+import cn.anlaser.exception.NutException;
 import cn.anlaser.web.impl.CommonActionImpl;
 import cn.wsalix.admin.entity.SysUser;
 import cn.wsalix.admin.form.UserForm;
@@ -29,6 +29,7 @@ import cn.wsalix.admin.status.UserEnum;
 import cn.wsalix.annotation.Menu;
 import cn.wsalix.constant.Global;
 import cn.wsalix.observable.service.RegisterService;
+import cn.wsalix.shop.init.ShopRoleInit;
 import cn.wsalix.type.UserTypeEnum;
 import cn.wsalix.user.service.UserCenterService;
 import cn.wsalix.user.service.UserInfoService;
@@ -67,18 +68,32 @@ public class UserAction extends
 		if (result.hasErrors()) {
 			ra.addFlashAttribute("form", form);
 			for (FieldError fieldError : result.getFieldErrors()) {
-				ra.addFlashAttribute("org.springframework.validation.BindingResult.result", result);
-				if (fieldError.getField().equals("username")) {	
-					return new ModelAndView("redirect:/" + module() + "/add"+ Global.urlSuffix);
+				ra.addFlashAttribute(
+						"org.springframework.validation.BindingResult.result",
+						result);
+				if (fieldError.getField().equals("username")) {
+					return new ModelAndView("redirect:/" + module() + "/add"
+							+ Global.urlSuffix);
 				}
 				if (fieldError.getField().equals("password")) {
-					return new ModelAndView("redirect:/" + module() + "/add"+ Global.urlSuffix);
-				}			
+					return new ModelAndView("redirect:/" + module() + "/add"
+							+ Global.urlSuffix);
+				}
 			}
 		}
-		form.setUserType(UserTypeEnum.back);
+		form.setRoleId(ShopRoleInit.employeeRole.getId());
+		//form.setUserType(UserTypeEnum.back);
 		// form.setRegType(UserRegTypeEnum.normal);
-		registerService.register(form);
+		try {
+			registerService.register(form);
+		} catch (NutException e) {
+			result.rejectValue("code", e.getMessage());
+			ra.addFlashAttribute(
+					"org.springframework.validation.BindingResult.result",
+					result);
+			return new ModelAndView("redirect:/" + module() + "/add"
+					+ Global.urlSuffix);
+		}
 		return new ModelAndView("redirect:/" + module() + "/list"
 				+ Global.urlSuffix);
 	}
@@ -94,7 +109,8 @@ public class UserAction extends
 	@Override
 	public ModelAndView list(UserForm form, BindingResult result, Model model,
 			Pageable pageable) {
-		form.setUserType(UserTypeEnum.back);
+		form.setRoleId(ShopRoleInit.employeeRole.getId());
+		//form.setUserType(UserTypeEnum.back);
 		// form.setRegType(UserRegTypeEnum.normal);
 		return super.list(form, result, model, pageable);
 	}
@@ -102,7 +118,8 @@ public class UserAction extends
 	@RequestMapping(value = "/customer_list", method = RequestMethod.GET)
 	public ModelAndView customerlist(UserForm form, BindingResult result,
 			Model model, Pageable pageable) {
-		form.setUserType(UserTypeEnum.normal);
+		form.setRoleId(ShopRoleInit.tradeRole.getId());
+		//form.setUserType(UserTypeEnum.normal);
 		// form.setThirdType(UserRegTypeEnum.normal);
 		// form.setThirdType(UserRegTypeEnum.qq);
 		// form.setThirdType(UserRegTypeEnum.weixin);
@@ -133,21 +150,20 @@ public class UserAction extends
 	}
 
 	@Override
-	public ModelAndView edit(Long id, UserForm entity, BindingResult result,RedirectAttributes ra,
-			Model model) {
+	public ModelAndView edit(Long id, UserForm entity, BindingResult result,
+			RedirectAttributes ra, Model model) {
 		// TODO Auto-generated method stub
-		return super.edit(id, entity, result, ra,model);
+		return super.edit(id, entity, result, ra, model);
 	}
 
-/*	@RequestMapping(value = "/profile", method = RequestMethod.GET)
-	public ModelAndView profile(Model model) {
-		BaseUser baseUser = userUtils.getInUser();
-		SysUser user=userService.findById(baseUser.getId());
-		model.addAttribute("user", user);
-		model.addAttribute("userInfo", userInfoService.findByUser(user));
-		model.addAttribute("userCenter", userCenterService.findByUser(user));
-		
-		return new ModelAndView(module() + "/profile");
-	}
-*/
+	/*
+	 * @RequestMapping(value = "/profile", method = RequestMethod.GET) public
+	 * ModelAndView profile(Model model) { BaseUser baseUser =
+	 * userUtils.getInUser(); SysUser
+	 * user=userService.findById(baseUser.getId()); model.addAttribute("user",
+	 * user); model.addAttribute("userInfo", userInfoService.findByUser(user));
+	 * model.addAttribute("userCenter", userCenterService.findByUser(user));
+	 * 
+	 * return new ModelAndView(module() + "/profile"); }
+	 */
 }
