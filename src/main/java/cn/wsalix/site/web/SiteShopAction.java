@@ -100,6 +100,13 @@ public class SiteShopAction {
 		return new ModelAndView("/site/shop/list");
 	}
 
+	@RequestMapping(value = { "/apply_open_shop" }, method = RequestMethod.GET)
+	public ModelAndView applyOpenShop(Model model) {
+		Shop shop = shopService.createShop();
+		return new ModelAndView("redirect:/site/shop/edit" + Global.urlSuffix
+				+ "?id=" + shop.getId());
+	}
+	
 	@RequestMapping(value = { "/add" }, method = RequestMethod.GET)
 	public ModelAndView addShop(Model model) {
 		Shop shop = shopService.createShop();

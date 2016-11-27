@@ -26,6 +26,7 @@ import cn.wsalix.admin.service.UserService;
 import cn.wsalix.annotation.Menu;
 import cn.wsalix.config.AppConfig;
 import cn.wsalix.constant.Global;
+import cn.wsalix.shop.init.ShopDictInit;
 import cn.wsalix.site.web.SiteAction;
 import cn.wsalix.sys.service.DailyRecordService;
 import cn.wsalix.user.entity.UserInfo;
@@ -72,7 +73,8 @@ public class AdminAction {
 		model.addAttribute("templetDir", appConfig.getBackTheme());
 
 		Pageable pageable = new PageRequest(1, 5);
-		model.addAttribute("system", dictService.getSysParas());
+		model.addAttribute("system",
+				dictService.getMapByCode(ShopDictInit.systemPara.getCode()));
 		model.addAttribute("userlsts",
 				userService.findAll(new UserForm(), pageable).getPage());
 		model.addAttribute("dailyRecord", dailyRecordService.newDay());
@@ -100,7 +102,8 @@ public class AdminAction {
 		model.addAttribute("templetDir", appConfig.getBackTheme());
 
 		Pageable pageable = new PageRequest(1, 5);
-		model.addAttribute("system", dictService.getSysParas());
+		model.addAttribute("system",
+				dictService.getMapByCode(ShopDictInit.systemPara.getCode()));
 		model.addAttribute("userlsts",
 				userService.findAll(new UserForm(), pageable).getPage());
 		model.addAttribute("dailyRecord", dailyRecordService.newDay());

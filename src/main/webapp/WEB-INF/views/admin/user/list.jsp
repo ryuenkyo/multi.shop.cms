@@ -34,7 +34,7 @@
                 <tr>
                     <td>${status.index+1}</td>
                 	<td>${obj.username}</td>
-                	<td>${obj.userType.title}</td>
+                	<td>${obj.mainRole}</td>
                     <td>${obj.status.title}</td>
                     <td>${obj.onlineFlag?'是':'否'}</td>
                     <td>${obj.createdDate}</td>

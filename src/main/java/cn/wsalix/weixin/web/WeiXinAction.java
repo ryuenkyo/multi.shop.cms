@@ -28,6 +28,7 @@ import cn.wsalix.admin.service.UserService;
 import cn.wsalix.config.SysConfig;
 import cn.wsalix.constant.Global;
 import cn.wsalix.login.form.WxCodeForm;
+import cn.wsalix.shop.init.ShopRoleInit;
 import cn.wsalix.shop.init.ShopUserInit;
 import cn.wsalix.weixin.entity.WxConfig;
 import cn.wsalix.weixin.entity.WxMessage;
@@ -200,6 +201,7 @@ public class WeiXinAction extends WeixinSupport {
 				}
 			}
 		}
+		form.setMainRole(ShopRoleInit.clientRole);
 		register(wxConfig, form);
 		return new ModelAndView("redirect:/site/user/index" + Global.urlSuffix);
 	}

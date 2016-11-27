@@ -38,14 +38,13 @@ import cn.wsalix.config.AppConfig;
 import cn.wsalix.config.SysConfig;
 import cn.wsalix.constant.Global;
 import cn.wsalix.exception.UserException;
-import cn.wsalix.login.form.WxCodeForm;
 import cn.wsalix.observable.service.RegisterService;
 import cn.wsalix.shiro.filter.IdFormAuthenticationFilter;
-import cn.wsalix.shiro.token.CaptchaToken;
 import cn.wsalix.shop.entity.Product;
 import cn.wsalix.shop.entity.Shop;
 import cn.wsalix.shop.form.ProductForm;
 import cn.wsalix.shop.form.ShopForm;
+import cn.wsalix.shop.init.ShopRoleInit;
 import cn.wsalix.shop.service.ProductService;
 import cn.wsalix.shop.service.ShopService;
 import cn.wsalix.shop.type.ProductTypeEnum;
@@ -55,7 +54,6 @@ import cn.wsalix.user.form.UserInfoForm;
 import cn.wsalix.user.service.UserCenterService;
 import cn.wsalix.user.service.UserInfoService;
 import cn.wsalix.utils.UserUtils;
-import cn.wsalix.weixin.entity.WxConfig;
 import cn.wsalix.weixin.service.WxConfigService;
 import cn.wsalix.weixin.service.WxService;
 
@@ -266,6 +264,7 @@ public class SiteAction {
 		token.setRememberMe(true);
 		subject.login(token);*/
 		try {
+			userForm.setRoleId(ShopRoleInit.clientRole.getId());
 			userRegisterService.register(userForm);
 		} catch (NutException e) {
 			result.rejectValue("msg", e.getMessage());
