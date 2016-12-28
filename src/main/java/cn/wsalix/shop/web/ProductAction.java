@@ -293,7 +293,7 @@ public class ProductAction
 			UploadFileForm upForm = new UploadFileForm();
 			upForm.setFkId(form.getId());
 			upForm.setType(FileTypeEnum.image);
-			upForm.setImageType(ImageTypeEnum.product);
+			upForm.setImageType(ImageTypeEnum.product.name());
 			HttpUtils.uploadFile(fsConfig, fileName, upForm);
 			form.setLogo(upForm.getHttpUrl());
 		}
@@ -347,8 +347,8 @@ public class ProductAction
 		 * List<UploadFile> uploadFileLst =
 		 * uploadFileService.findByProductId(form .getProductId());
 		 */
-		List<ImageFile> uploadFileLst = imageFileService.findByFkId(
-				ImageTypeEnum.product, form.getProductId());
+		List<ImageFile> uploadFileLst =(List<ImageFile>) imageFileService.findFkByForm(
+				ImageTypeEnum.product.name(), form.getProductId());
 		model.addAttribute("form", entity);
 		model.addAttribute("uploadFileLst", uploadFileLst);
 		model.addAttribute("action", "upload_img.do");
@@ -371,7 +371,7 @@ public class ProductAction
 			UploadFileForm upForm = new UploadFileForm();
 			upForm.setFkId(form.getId());
 			upForm.setType(FileTypeEnum.image);
-			upForm.setImageType(ImageTypeEnum.product);
+			upForm.setImageType(ImageTypeEnum.product.name());
 			HttpUtils.uploadFile(fsConfig, fileName, upForm);
 			form.setLogo(upForm.getHttpUrl());
 			form.setSavePath(upForm.getSavePath());

@@ -95,7 +95,7 @@ public class ImageFileAction
 							form.getFkId()));
 			model.addAttribute(
 					"resLst",
-					imageFileService.findPageByFkId(form.getImageType(),
+					imageFileService.findFkByForm(form.getImageType(),
 							form.getFkId()));
 			// model.addAttribute("form", uploadFileService.findFkByForm(form));
 		}

@@ -96,7 +96,7 @@ public class BrandAction extends
 			UploadFileForm upForm = new UploadFileForm();
 			upForm.setFkId(form.getId());
 			upForm.setType(FileTypeEnum.image);
-			upForm.setImageType(ImageTypeEnum.brand);
+			upForm.setImageType(ImageTypeEnum.brand.name());
 			HttpUtils.uploadFile(fsConfig, fileName, upForm);
 			form.setLogo(upForm.getHttpUrl());
 		}
@@ -131,7 +131,7 @@ public class BrandAction extends
 			UploadFileForm upForm = new UploadFileForm();
 			upForm.setFkId(form.getId());
 			upForm.setType(FileTypeEnum.image);
-			upForm.setImageType(ImageTypeEnum.brand);
+			upForm.setImageType(ImageTypeEnum.brand.name());
 			HttpUtils.uploadFile(fsConfig, fileName, upForm);
 			form.setLogo(upForm.getHttpUrl());
 		}

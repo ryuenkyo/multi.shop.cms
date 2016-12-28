@@ -73,7 +73,7 @@ public class UserInfoAction
 			Model model) throws Exception {
 		UploadFileForm upForm = new UploadFileForm();
 		upForm.setType(FileTypeEnum.image);
-		upForm.setImageType(ImageTypeEnum.avatar);
+		upForm.setImageType(ImageTypeEnum.avatar.name());
 		HttpUtils.uploadFile(fsConfig, fileName, upForm);
 		upForm.setFkId(form.getUserId());
 		fileUploadService.upload(upForm);

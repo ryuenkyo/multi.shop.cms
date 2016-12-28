@@ -15,7 +15,7 @@ import cn.wsalix.templet.service.TempletService;
 import cn.wsalix.type.TempletEnum;
 
 @Controller
-@RequestMapping(value = "/templet/templet")
+@RequestMapping(value = "/templet/main")
 public class TempletAction
 		extends
 		CommonActionImpl<TempletForm, TempletService, TempletRepository, Templet> {

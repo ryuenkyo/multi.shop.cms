@@ -149,7 +149,7 @@ public abstract class BasicActionImpl<Form extends CommonForm, Service extends B
 	}
 
 	public NutException throwException(String message) {
-		return new NutException(message);
+		return new NutException("",message);
 	}
 	/*
 	 * protected ModelAndView ajaxDoneSuccess(String message) { return

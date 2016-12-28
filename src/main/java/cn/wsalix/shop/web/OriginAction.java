@@ -83,7 +83,7 @@ public class OriginAction extends
 			UploadFileForm upForm = new UploadFileForm();
 			upForm.setFkId(form.getId());
 			upForm.setType(FileTypeEnum.image);
-			upForm.setImageType(ImageTypeEnum.origin);
+			upForm.setImageType(ImageTypeEnum.origin.name());
 			HttpUtils.uploadFile(fsConfig, fileName, upForm);
 			form.setLogo(upForm.getHttpUrl());			
 		}		
@@ -108,7 +108,7 @@ public class OriginAction extends
 			UploadFileForm upForm = new UploadFileForm();
 			upForm.setFkId(form.getId());
 			upForm.setType(FileTypeEnum.image);
-			upForm.setImageType(ImageTypeEnum.origin);
+			upForm.setImageType(ImageTypeEnum.origin.name());
 			HttpUtils.uploadFile(fsConfig, fileName, upForm);
 			form.setLogo(upForm.getHttpUrl());	
 		}		
