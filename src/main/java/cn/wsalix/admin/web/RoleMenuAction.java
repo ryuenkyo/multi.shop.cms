@@ -60,19 +60,19 @@ public class RoleMenuAction
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView roleMenus(@Valid RoleMenuForm form,
 			BindingResult result, Model model, Pageable pageable) {
-		RoleMenu roleMenu = new RoleMenu();
+/*		RoleMenu roleMenu = new RoleMenu();
 		roleMenu.setPreFixId(form.getRoleId());
-		roleMenu.setPostFixId(form.getMenuId());
-		return relatedList(roleMenu, model);
+		roleMenu.setPostFixId(form.getMenuId());*/
+		return relatedList(form, model);
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public ModelAndView roleMenuEdit(RoleMenuForm form, BindingResult result,
 			Model model, Pageable pageable) {
-		RoleMenu roleMenu = new RoleMenu();
+/*		RoleMenu roleMenu = new RoleMenu();
 		roleMenu.setPreFixId(form.getRoleId());
-		roleMenu.setPostFixId(form.getMenuId());
-		return relatedAdd(roleMenu, model);
+		roleMenu.setPostFixId(form.getMenuId());*/
+		return relatedAdd(form, model);
 	}
 
 	@Override

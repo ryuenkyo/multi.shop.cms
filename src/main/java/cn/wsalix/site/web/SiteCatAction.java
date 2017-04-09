@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import cn.anlaser.admin.BaseUser;
-import cn.anlaser.status.DataEnum;
+import cn.anlaser.status.FlagEnum;
 import cn.wsalix.admin.service.UserService;
 import cn.wsalix.biz.entity.Category;
 import cn.wsalix.biz.form.CategoryForm;
@@ -61,7 +61,7 @@ public class SiteCatAction {
 		} else {
 			BaseUser user = userUtils.getInUser();
 			form.setCreatedBy(user.getId());
-			form.setFlag(DataEnum.valid);
+			form.setFlag(FlagEnum.valid);
 			model.addAttribute("cats", categoryService.findByForm(form));
 		}
 		return new ModelAndView("/site/cat/list");
@@ -122,8 +122,8 @@ public class SiteCatAction {
 			Shop shop = shopService.findById(form.getShopId());
 			model.addAttribute("shop", shop);
 		}
-		if (category.getFlag().ordinal() == DataEnum.create.ordinal()) {
-			category.setFlag(DataEnum.valid);
+		if (category.getFlag().ordinal() == FlagEnum.create.ordinal()) {
+			category.setFlag(FlagEnum.valid);
 			categoryService.edit(category);
 		}
 		return new ModelAndView("/site/cat/edit");

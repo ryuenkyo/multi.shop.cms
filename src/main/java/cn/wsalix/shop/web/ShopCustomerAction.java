@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import cn.anlaser.status.DataEnum;
+import cn.anlaser.status.FlagEnum;
 import cn.anlaser.web.impl.CommonActionImpl;
 import cn.wsalix.admin.entity.SysMenu;
 import cn.wsalix.admin.entity.SysUser;
@@ -63,7 +63,7 @@ public class ShopCustomerAction extends
 			 */
 			model.addAttribute("currMenu", menu);
 		}
-		model.addAttribute("dataEnums", DataEnum.values());
+		model.addAttribute("dataEnums", FlagEnum.values());
 	}
 
 	@Menu(code = "shop:customer")

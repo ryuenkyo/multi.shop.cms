@@ -65,19 +65,19 @@ public class MenuPermitAction
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView userRoles(@Valid MenuPermitForm form,
 			BindingResult result, Model model, Pageable pageable) {
-		MenuPermit related = new MenuPermit();
+/*		MenuPermit related = new MenuPermit();
 		related.setPreFixId(form.getMenuId());
-		related.setPostFixId(form.getPermitId());
-		return relatedList(related, model);
+		related.setPostFixId(form.getPermitId());*/
+		return relatedList(form, model);
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public ModelAndView roleMenuEdit(MenuPermitForm form, BindingResult result,
 			Model model, Pageable pageable) {
-		MenuPermit related = new MenuPermit();
+/*		MenuPermit related = new MenuPermit();
 		related.setPreFixId(form.getMenuId());
-		related.setPostFixId(form.getPermitId());
-		return relatedAdd(related, model);
+		related.setPostFixId(form.getPermitId());*/
+		return relatedAdd(form, model);
 	}
 
 	@Override

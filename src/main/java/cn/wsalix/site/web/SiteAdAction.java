@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import cn.anlaser.admin.BaseUser;
-import cn.anlaser.status.DataEnum;
+import cn.anlaser.status.FlagEnum;
 import cn.wsalix.biz.entity.Advertise;
 import cn.wsalix.biz.form.AdvertiseForm;
 import cn.wsalix.biz.form.CategoryForm;
@@ -64,7 +64,7 @@ public class SiteAdAction {
 		} else {
 			BaseUser user = userUtils.getInUser();
 			form.setCreatedBy(user.getId());
-			form.setFlag(DataEnum.valid);
+			form.setFlag(FlagEnum.valid);
 			model.addAttribute("ads", advertiseService.findByForm(form));
 		}
 		return new ModelAndView("/site/ad/list");
@@ -90,8 +90,8 @@ public class SiteAdAction {
 			Shop shop = shopService.findById(form.getShopId());
 			model.addAttribute("shop", shop);
 		}
-		if (obj.getFlag().ordinal() == DataEnum.create.ordinal()) {
-			obj.setFlag(DataEnum.valid);
+		if (obj.getFlag().ordinal() == FlagEnum.create.ordinal()) {
+			obj.setFlag(FlagEnum.valid);
 			advertiseService.edit(obj);
 		}
 		model.addAttribute("ad", obj);

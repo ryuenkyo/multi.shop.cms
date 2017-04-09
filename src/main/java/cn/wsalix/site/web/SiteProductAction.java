@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import cn.anlaser.admin.BaseUser;
-import cn.anlaser.status.DataEnum;
+import cn.anlaser.status.FlagEnum;
 import cn.wsalix.biz.form.CategoryForm;
 import cn.wsalix.constant.Global;
 import cn.wsalix.shop.entity.Product;
@@ -74,7 +74,7 @@ public class SiteProductAction {
 					productService.findByShopId(form.getShopId()));
 		} else {
 			form.setCreatedBy(user.getId());
-			form.setFlag(DataEnum.valid);
+			form.setFlag(FlagEnum.valid);
 			model.addAttribute("products", productService.findByForm(form));
 		}
 		return new ModelAndView("/site/product/list");
@@ -101,8 +101,8 @@ public class SiteProductAction {
 		model.addAttribute("catLst", productService.findCatLst(queryForm));
 		model.addAttribute("statusLst", ProductEnum.values());
 		Product obj = productService.findById(form.getId());
-		if (obj.getFlag().ordinal() == DataEnum.create.ordinal()) {
-			obj.setFlag(DataEnum.valid);
+		if (obj.getFlag().ordinal() == FlagEnum.create.ordinal()) {
+			obj.setFlag(FlagEnum.valid);
 			productService.edit(obj);
 		}
 		// model.addAttribute("shop", obj.getShop());

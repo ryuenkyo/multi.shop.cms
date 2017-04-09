@@ -59,19 +59,26 @@ public class UserRoleAction
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public ModelAndView userRoles(@Valid UserRoleForm form,
 			BindingResult result, Model model, Pageable pageable) {
-		UserRole userRole = new UserRole();
+/*		UserRole userRole = new UserRole();
 		userRole.setPreFixId(form.getUserId());
-		userRole.setPostFixId(form.getRoleId());
-		return relatedList(userRole, model);
+		userRole.setPostFixId(form.getRoleId());*/
+		
+
+		form.setPreFixId(form.getUserId());
+		form.setPostFixId(form.getRoleId());
+		return relatedList(form, model);
 	}
 
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public ModelAndView userRoleEdit(UserRoleForm form, BindingResult result,
 			Model model, Pageable pageable) {
-		UserRole userRole = new UserRole();
+		/*UserRole userRole = new UserRole();
 		userRole.setPreFixId(form.getUserId());
-		userRole.setPostFixId(form.getRoleId());
-		return relatedAdd(userRole, model);
+		userRole.setPostFixId(form.getRoleId());*/
+		
+		form.setPreFixId(form.getUserId());
+		form.setPostFixId(form.getRoleId());
+		return relatedAdd(form, model);
 	}
 
 	@Override

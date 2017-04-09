@@ -19,7 +19,7 @@ import cn.anlaser.form.CommonForm;
 import cn.anlaser.page.QueryPage;
 import cn.anlaser.repository.BasicRepository;
 import cn.anlaser.service.BasicService;
-import cn.anlaser.status.DataEnum;
+import cn.anlaser.status.FlagEnum;
 import cn.anlaser.web.BasicAction;
 import cn.wsalix.constant.Global;
 import cn.wsalix.exception.CommonException;
@@ -50,7 +50,7 @@ public abstract class BasicActionImpl<Form extends CommonForm, Service extends B
 		if (annotation != null) {
 			
 		}*/
-		model.addAttribute("dataEnums", DataEnum.values());	
+		model.addAttribute("dataEnums", FlagEnum.values());	
 	}
 
 	@Override

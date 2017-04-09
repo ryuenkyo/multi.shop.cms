@@ -36,7 +36,7 @@ public abstract class ParentActionImpl<Form extends ParentForm, Service extends 
 	public ModelAndView parentTop(Form form, BindingResult result, Model model,
 			Pageable pageable) {
 		if (form == null || form.getParentId() == null) {
-			QueryPage<Entity> resPage = getService().findParentTop(pageable);
+			QueryPage<Entity> resPage = getService().findParentTop(form,pageable);
 			model.addAttribute("queryLine", resPage.getQueryLine());
 			model.addAttribute("resLst", resPage.getPage());
 		} else {

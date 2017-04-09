@@ -161,7 +161,7 @@ public class ProductAction
 	@RequestMapping(value = "/operate", method = RequestMethod.GET)
 	public ModelAndView toOperate(@Valid ProductForm form,
 			BindingResult result, Model model) {
-		model.addAttribute("catLst", categoryService.findParentTop());
+		model.addAttribute("catLst", categoryService.findParentTop(null));
 		model.addAttribute("statusLst", ProductEnum.values());
 		if (form.getOrderId() != null && form.getOrderId() != 0) {
 			model.addAttribute("order",

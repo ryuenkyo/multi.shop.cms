@@ -22,7 +22,7 @@ public abstract class RelatedActionImpl<Form extends RelatedForm, Service extend
 	}
 
 	@Override
-	public ModelAndView relatedList(Entity entity, Model model) {
+	public ModelAndView relatedList(Form entity, Model model) {
 		boolean allBlank = true;
 		if (entity.getPreFixId() != null && entity.getPreFixId() != 0) {
 			allBlank = false;
@@ -48,7 +48,7 @@ public abstract class RelatedActionImpl<Form extends RelatedForm, Service extend
 	}
 
 	@Override
-	public ModelAndView relatedAdd(Entity entity, Model model) {
+	public ModelAndView relatedAdd(Form entity, Model model) {
 		if (entity.getPreFixId() != null && !entity.getPreFixId().equals("")) {
 			model.addAttribute(preFix(),
 					getService().findPreFix(entity.getPreFixId()));

@@ -27,7 +27,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import cn.anlaser.admin.BaseUser;
 import cn.anlaser.exception.NutException;
-import cn.anlaser.status.DataEnum;
+import cn.anlaser.status.FlagEnum;
 import cn.wsalix.admin.form.UserForm;
 import cn.wsalix.admin.service.UserService;
 import cn.wsalix.biz.entity.Category;
@@ -173,7 +173,7 @@ public class SiteAction {
 		} else {
 			BaseUser user = userUtils.getInUser();
 			form.setCreatedBy(user.getId());
-			form.setFlag(DataEnum.valid);
+			form.setFlag(FlagEnum.valid);
 			model.addAttribute("products", productService.findByForm(form));
 		}
 		return new ModelAndView("/site/index/product");
@@ -189,7 +189,7 @@ public class SiteAction {
 		} else {
 			BaseUser user = userUtils.getInUser();
 			form.setCreatedBy(user.getId());
-			form.setFlag(DataEnum.valid);
+			form.setFlag(FlagEnum.valid);
 			model.addAttribute("cats", categoryService.findByForm(form));
 		}
 		return new ModelAndView("/site/index/cat");

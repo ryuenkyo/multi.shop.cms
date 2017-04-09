@@ -19,10 +19,10 @@ public interface RelatedAction<Form extends RelatedForm, Service extends Related
 	public String module();
 
 	@RequestMapping(value = "/related_list", method = RequestMethod.GET)
-	public ModelAndView relatedList(Entity entity, Model model);
+	public ModelAndView relatedList(Form entity, Model model);
 
 	@RequestMapping(value = "/related_add", method = RequestMethod.GET)
-	public ModelAndView relatedAdd(Entity entity, Model model);
+	public ModelAndView relatedAdd(Form entity, Model model);
 
 	@RequestMapping(value = "/set_related", method = RequestMethod.GET)
 	public @ResponseBody String setRelated(Form form);
