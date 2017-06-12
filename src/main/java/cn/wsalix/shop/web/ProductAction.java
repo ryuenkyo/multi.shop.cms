@@ -40,6 +40,7 @@ import cn.wsalix.shop.entity.Brand;
 import cn.wsalix.shop.entity.Origin;
 import cn.wsalix.shop.entity.Price;
 import cn.wsalix.shop.entity.Product;
+import cn.wsalix.shop.entity.Shop;
 import cn.wsalix.shop.entity.ShopInfo;
 import cn.wsalix.shop.form.BrandForm;
 import cn.wsalix.shop.form.OriginForm;
@@ -52,6 +53,7 @@ import cn.wsalix.shop.service.OriginService;
 import cn.wsalix.shop.service.PriceService;
 import cn.wsalix.shop.service.ProductService;
 import cn.wsalix.shop.service.ShopInfoService;
+import cn.wsalix.shop.service.ShopService;
 import cn.wsalix.shop.status.ProductEnum;
 import cn.wsalix.shop.status.ShopOperateEnum;
 import cn.wsalix.type.MessTypeEnum;
@@ -66,7 +68,8 @@ public class ProductAction
 	private FileServerConfig fsConfig;
 	@Autowired
 	private ProductService productService;
-
+	@Autowired
+	private ShopService shopService;
 	@Autowired
 	private CategoryService categoryService;
 	@Autowired
@@ -106,6 +109,8 @@ public class ProductAction
 	@Override
 	public ModelAndView toAdd(@Valid ProductForm form, BindingResult result,
 			Model model) {
+		Shop shop = shopService.findById(form.getShopId());
+		model.addAttribute("shop", shop);
 		Product product = productService.getNew();
 		model.addAttribute("form", product);
 		CategoryForm queryForm = new CategoryForm();

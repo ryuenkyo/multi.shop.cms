@@ -4,7 +4,7 @@
     <div class="navbar-inner no-bg">
         <h4 class="title"><i class="fontello-icon-window"></i>店铺管理 
         	<small>        	
-        		<a href="${appPath}/shop/product/add.do" class="btn btn-blue">店铺新增</a>
+        		<a href="${appPath}/shop/main/add.do" class="btn btn-blue">店铺新增</a>
 			</small>
 		</h4>
     </div>		
@@ -31,13 +31,14 @@
         <c:forEach items="${resLst.content}" var="obj" varStatus="status">
             <tr>
                 <td>${status.index+1}</td>
-                <td>${obj.code}</td>
+                <td>${obj.name}</td>
             	<td>${obj.shortName}</td>
                 <td>${obj.name}</td>
-                <td><a href="${appPath}/shop/product/list.do?shopId=${obj.id}">查看<a></td>
+                <td><a href="${appPath}/admin/product/list.do?shopId=${obj.id}">查看<a></td>
                 <td><a href="">查看<a></td>
                 <td><a href="">正常<a></td>
-                <td><a href="${appPath}/shop/shop/item.do?id=${obj.id}">查看<a></td>
+                <td><a href="${appPath}/shop/main/edit.do?id=${obj.id}">修改<a>
+                	<a href="${appPath}/shop/shop/item.do?id=${obj.id}">查看<a></td>
             </tr>
         </c:forEach>	
     </tbody>

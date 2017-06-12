@@ -4,8 +4,8 @@
 <div class="widget widget-simple">              
     <div class="widget-content">
         <div class="widget-body">
-            <form id="accounForm" class="form-horizontal" method="" action="" >
-
+            <form id="accounForm" class="form-horizontal" method="post" action="#" >
+        	<input type="hidden" name="id" value="${form.id}" />
                 <div class="row-fluid">
                     <div class="span12 form-dark">
                         <fieldset>
@@ -16,29 +16,29 @@
                                 <!-- // section form divider -->
                                 
                                 <li class="control-group">
-                                    <label for="accountPrefix" class="control-label">店铺<span class="required">*</span></label>
+                                    <label for="name" class="control-label">店铺名称<span class="required">*</span></label>
                                     <div class="controls">
-                                        <input id="accountPrefix" type="text" value="" name="accountPrefix">
+                                        <input id="name" type="text" value="${form.name}" name="name">
                                     </div>                                               
                                 </li>
                                 <li class="control-group">
-                                    <label for="accountFirstName" class="control-label">店铺名称<span class="required">*</span></label>
+                                    <label for="shortName" class="control-label">店铺名称[简称]<span class="required">*</span></label>
                                     <div class="controls">
-                                        <input id="accountFirstName"  type="text" value="" name="accountPrefix">
+                                        <input id="shortName"  type="text" value="${form.shortName}" name="shortName">
                                     </div>
                                 </li>
                                 <!-- // form item -->
                                 
                                 <li class="control-group">
-                                    <label for="accountFirstName" class="control-label">菜单地址 <span class="required">*</span></label>
+                                    <label for="telephone" class="control-label">联系电话 <span class="required">*</span></label>
                                     <div class="controls">
-                                        <input id="accountFirstName" class="span11" type="text" name="accountFirstName" value="">
+                                        <input id="telephone" class="span11" type="text" name="telephone" value="${form.telephone}">
                                     </div>
                                 </li>
                                 <li class="control-group">
-                                    <label for="accountFirstName" class="control-label">描述 <span class="required">*</span></label>
+                                    <label for="content" class="control-label">描述 <span class="required">*</span></label>
                                     <div class="controls">
-                                    	<textarea id="accountFirstName" class="input-block-level" rows="4"></textarea>                                                	
+                                    	<textarea id="content" name="content" class="input-block-level" rows="4">${form.content}</textarea>                                                	
                                     </div>
                                 </li>
                                 <!-- // form item -->

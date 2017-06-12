@@ -1,36 +1,58 @@
 package cn.wsalix.shop.init;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import cn.wsalix.admin.entity.SysRole;
-import cn.wsalix.admin.init.RoleInit;
+import cn.wsalix.admin.service.RequiresRoleService;
 import cn.wsalix.admin.service.RoleService;
+import cn.wsalix.init.RoleInit;
 
 @Service("shopRoleInit")
 public class ShopRoleInit implements RoleInit {
-	public static SysRole adminRole = new SysRole("admin", "管理员");
-	public static SysRole employeeRole = new SysRole("employee", "职员");
-	public static SysRole tradeRole = new SysRole("trade", "商户");
-	public static SysRole clientRole = new SysRole("client", "客户");
+	public SysRole adminRole;
+	public SysRole clientRole;
 	@Autowired
 	private RoleService roleService;
+
+	@Autowired
+	private RequiresRoleService requiresRoleService;
+	boolean isExe = false;
 
 	@Transactional
 	@Override
 	public void init(boolean create) {
-		if (create) {
-			adminRole = roleService.add(adminRole);
-			employeeRole = roleService.add(employeeRole);
-			tradeRole = roleService.add(tradeRole);
-			clientRole = roleService.add(clientRole);
-		} else {
-			adminRole = roleService.findByCodeOne(adminRole.getCode());
-			employeeRole = roleService.findByCodeOne(employeeRole.getCode());
-			tradeRole = roleService.findByCodeOne(tradeRole.getCode());
-			clientRole = roleService.findByCodeOne(clientRole.getCode());
+		adminRole = roleService.findByCodeOne("admin");
+		if (adminRole == null) {
+			adminRole = new SysRole("admin", "管理员");
+			roleService.add(adminRole);
+		}
+		clientRole = roleService.findByCodeOne("client");
+		if (clientRole == null) {
+			clientRole = new SysRole("client", "客户");
+			roleService.add(clientRole);
 		}
 	}
 
+	@Override
+	public List<SysRole> getAllRoles() {
+		List<SysRole> roleLst = new ArrayList<SysRole>();
+		roleLst.add(adminRole);
+		roleLst.add(clientRole);
+		return roleLst;
+	}
+
+	@Override
+	public SysRole getClientRole() {
+		return clientRole;
+	}
+
+	@Override
+	public SysRole getAdmin() {
+		return adminRole;
+	}
 }

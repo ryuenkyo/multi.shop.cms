@@ -60,7 +60,7 @@ public class SiteAdAction {
 			Shop shop = shopService.findById(form.getShopId());
 			model.addAttribute("shop", shop);
 			model.addAttribute("ads",
-					advertiseService.findByShopId(form.getShopId()));
+					shopService.findByAds(shop));
 		} else {
 			BaseUser user = userUtils.getInUser();
 			form.setCreatedBy(user.getId());

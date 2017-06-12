@@ -54,24 +54,9 @@ public class MenuDAOTest extends AbstractTransactionalJUnit4SpringContextTests {
 	@Autowired
 	MenuRepository menuRepository;
 
-	@Test
-	public void findByRoleId() {
-		menuRepository.findMenusByRoleId(1l);
-	}
-
-	@Test
-	public void findUnByRoleId() {
-		menuRepository.findUnMenusByRoleId(1l);
-	}
-
-	@Test
-	public void findByUserId() {
-		menuRepository.findMenusByUserId(1l);
-	}
-
-	@Test
+@Test
 	public void findMenuByUserId() {
-		List<SysMenu> menus = menuRepository.findByUserId(1l);
+		List<SysMenu> menus =null;// menuRepository.findByUserId(1l);
 		List<SysMenu> resMenu = new ArrayList<SysMenu>();
 		for (SysMenu menuItem : menus) {
 			if (menuItem.getParent() == null) {

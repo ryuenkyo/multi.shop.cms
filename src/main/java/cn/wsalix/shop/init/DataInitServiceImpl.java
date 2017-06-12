@@ -1,7 +1,6 @@
 package cn.wsalix.shop.init;
 
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.shiro.authz.annotation.RequiresRoles;
@@ -10,11 +9,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import cn.wsalix.admin.entity.RequiresPermit;
 import cn.wsalix.admin.entity.RequiresRole;
 import cn.wsalix.admin.entity.SysDict;
 import cn.wsalix.admin.repository.DictRepository;
-import cn.wsalix.admin.repository.RequiresPermitRepository;
 import cn.wsalix.admin.repository.RequiresRoleRepository;
 import cn.wsalix.admin.service.DataInitService;
 import cn.wsalix.admin.status.DictEnum;
@@ -24,7 +21,6 @@ import cn.wsalix.config.AppConfig;
 import cn.wsalix.constant.DataDefine;
 import cn.wsalix.spring.SpringUtils;
 import cn.wsalix.status.CatEnum;
-import cn.wsalix.templet.entity.SiteInfo;
 import cn.wsalix.templet.service.SiteInfoService;
 
 @Service("dataInitService")
@@ -44,8 +40,6 @@ public class DataInitServiceImpl implements DataInitService {
 	private DictRepository dictRepository;
 	@Autowired
 	private RequiresRoleRepository requiresRoleRepository;
-	@Autowired
-	private RequiresPermitRepository requiresPermitRepository;
 
 	/*
 	 * @Autowired private RegisterService registerService;
@@ -111,7 +105,7 @@ public class DataInitServiceImpl implements DataInitService {
 	@Value("${permit.group}")
 	private String permitGroup;
 
-	@Transactional
+/*	@Transactional
 	@Override
 	public boolean permitInit(boolean create) {
 		String[] permits = permitGroup.split("\\,");
@@ -127,7 +121,7 @@ public class DataInitServiceImpl implements DataInitService {
 		}
 		return false;
 	}
-
+*/
 	/*
 	 * @Value("${dict.count}") private int dictCount;
 	 * 
@@ -207,9 +201,10 @@ public class DataInitServiceImpl implements DataInitService {
 		return categoryService.add(obj);
 	}
 
+
 	@Override
-	public boolean siteInit() {
-		SiteInfo obj = new SiteInfo();
+	public boolean menuInit(boolean create) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 }

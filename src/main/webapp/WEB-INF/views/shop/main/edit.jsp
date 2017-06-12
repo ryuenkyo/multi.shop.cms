@@ -9,7 +9,7 @@
             <div class="widget widget-simple">              
                 <div class="widget-content">
                     <div class="widget-body">
-                        <form id="accounForm" class="form-horizontal" method="" action="#" >
+                        <form id="accounForm" class="form-horizontal" method="post" action="#" >
 
                             <div class="row-fluid">
                                 <div class="span12 form-dark">
@@ -20,30 +20,30 @@
                                             </li>
                                             <!-- // section form divider -->
                                             
+                                          
                                             <li class="control-group">
-                                                <label for="accountPrefix" class="control-label">店铺简称<span class="required">*</span></label>
-                                                <div class="controls">
-                                                    <input id="accountPrefix" type="text" value="${form.shortName}" name="accountPrefix">
-                                                </div>                                               
-                                            </li>
-                                            <li class="control-group">
-	                                            <label for="accountFirstName" class="control-label">店铺名称<span class="required">*</span></label>
+	                                            <label for="name" class="control-label">店铺名称<span class="required">*</span></label>
 	                                            <div class="controls">
-	                                                <input id="accountFirstName"  type="text" value="${form.name}" name="accountPrefix">
+	                                                <input id="name"  type="text" value="${form.name}" name="name">
 	                                            </div>
 	                                        </li>
                                             <!-- // form item -->
-                                            
                                             <li class="control-group">
-                                                <label for="accountFirstName" class="control-label">店铺地址 <span class="required">*</span></label>
+	                                            <label for="shortName" class="control-label">店铺简称<span class="required">*</span></label>
+	                                            <div class="controls">
+	                                                <input id="shortName" type="text" value="${form.shortName}" name="shortName">
+	                                            </div>                                               
+	                                        </li>
+                                            <li class="control-group">
+                                                <label for="telephone" class="control-label">店铺电话 <span class="required">*</span></label>
                                                 <div class="controls">
-                                                    <input id="accountFirstName" class="span11" type="text" name="accountFirstName" value="${form.shortName}">
+                                                    <input id="telephone" class="span11" type="text" name="telephone" value="${form.telephone}">
                                                 </div>
                                             </li>
                                             <li class="control-group">
-	                                            <label for="accountFirstName" class="control-label">描述 <span class="required">*</span></label>
+	                                            <label for="content" class="control-label">描述 <span class="required">*</span></label>
 	                                            <div class="controls">
-	                                            	<textarea id="accountFirstName" class="input-block-level" rows="4"></textarea>                                                	
+	                                            	<textarea id="content" class="input-block-level" rows="4" name="content">${form.content}</textarea>                                                	
 	                                            </div>
 	                                        </li>
                                             <!-- // form item -->

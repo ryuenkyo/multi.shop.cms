@@ -40,32 +40,47 @@ public class WxConfigAction
 	//@RequiresPermissions("weixin:config:list")
 	@Override
 	public ModelAndView list(WxConfigForm form,BindingResult result, Model model, Pageable pageable) {
-		model.addAttribute("user", userService.findById(form.getUserId()));
+		if(form.getUserId()!=null){
+			model.addAttribute("user", userService.findById(form.getUserId()));
+		}		
 		return super.list(form, result,model, pageable);
 	}
 	//@RequiresPermissions("weixin:config:add")
 	@Override
 	public ModelAndView toAdd(WxConfigForm form, BindingResult result,
 			Model model) {
-		model.addAttribute("user", userService.findById(form.getUserId()));
+		if(form.getUserId()!=null){
+			model.addAttribute("user", userService.findById(form.getUserId()));
+		}		
 		return super.toAdd(form, result, model);
 	}
 
 	@Override
 	public ModelAndView add(WxConfigForm form, BindingResult result,RedirectAttributes ra, Model model) {
-		SysUser user = userService.findById(form.getUserId());
-		super.add(form, result, ra,model);
-		return new ModelAndView("redirect:/" + module() + "/list"
-				+ Global.urlSuffix + "?userId=" + user.getId());
+		if(form.getUserId()!=null){
+			form.setUser(userService.findById(form.getUserId()));
+			super.add(form, result, ra,model);
+			return new ModelAndView("redirect:/" + module() + "/list"
+					+ Global.urlSuffix + "?userId=" + form.getUserId());
+		}else{
+			super.add(form, result, ra,model);
+			return new ModelAndView("redirect:/" + module() + "/list"
+					+ Global.urlSuffix);
+		}
 	}
 
 	@Override
 	public ModelAndView delete(WxConfigForm form, BindingResult result,
 			Model model) {
-		WxConfig WxConfig = wxConfigService.findById(form.getId());
+		if(form.getUserId()!=null){
+			WxConfig WxConfig = wxConfigService.findById(form.getId());
+			super.delete(form, result, model);
+			return new ModelAndView("redirect:/" + module() + "/list"
+					+ Global.urlSuffix + "?userId=" + WxConfig.getUser().getId());
+		}
 		super.delete(form, result, model);
 		return new ModelAndView("redirect:/" + module() + "/list"
-				+ Global.urlSuffix + "?userId=" + WxConfig.getUser().getId());
+				+ Global.urlSuffix);
 
 	}
 

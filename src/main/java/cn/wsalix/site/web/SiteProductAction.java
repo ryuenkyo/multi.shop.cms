@@ -1,5 +1,7 @@
 package cn.wsalix.site.web;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,11 +32,15 @@ public class SiteProductAction {
 	private ShopService shopService;
 	@Autowired
 	protected UserUtils userUtils;
-
+	@Autowired
+	private HttpServletRequest request;
+	@Autowired
+	private ShopWebUtils shopWebUtils;
 	@RequestMapping(value = { "by_shop_cat" }, method = RequestMethod.GET)
 	public ModelAndView byShopAndCat(ProductForm form, Model model) {
+		Shop shop =shopWebUtils.getShop(request);
 		model.addAttribute("products", productService.findByTypeAndFkidAndCat(
-				ProductTypeEnum.shop, form.getShopId(), form.getCatId()));
+				ProductTypeEnum.shop, shop, form.getCatId()));
 		return new ModelAndView("/site/product/index");
 	}
 

@@ -49,13 +49,14 @@ public class WeiXinAction extends WeixinSupport {
 	private WxConfigService wxConfigService;
 	@Autowired
 	private SysConfig sysConfig;
-
+	@Autowired
+	private ShopRoleInit shopRoleInit;
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	@ResponseBody
 	protected String jsonIndex(@PathVariable Long wxConfigId,
 			HttpServletRequest request) {
 		String paraLines = getInfo(request);
-		WxConfig wxConfig = wxConfigService.findByUser(ShopUserInit.adminUser.getId());
+		WxConfig wxConfig = wxConfigService.findByDefault();
 		logger.info("weixin bind:" + paraLines);
 		if (wxConfig != null && wxConfig.getWxToken() != null
 				&& !wxConfig.getWxToken().equals("")
@@ -174,7 +175,7 @@ public class WeiXinAction extends WeixinSupport {
 		if (wxConfigId != null && wxConfigId != 0) {
 			wxConfig = wxConfigService.findByConfigId(wxConfigId);
 		} else {
-			wxConfig = wxConfigService.findByUser(ShopUserInit.adminUser.getId());
+			wxConfig = wxConfigService.findByDefault();
 		}
 		String paraLines = getInfo(request);
 		logger.info("redirect_uri:" + paraLines);
@@ -190,7 +191,7 @@ public class WeiXinAction extends WeixinSupport {
 		if (wxConfigId != null && wxConfigId != 0) {
 			wxConfig = wxConfigService.findByConfigId(wxConfigId);
 		} else {
-			wxConfig = wxConfigService.findByUser(ShopUserInit.adminUser.getId());
+			wxConfig = wxConfigService.findByDefault();
 		}
 		if (result.hasErrors()) {
 			for (FieldError fieldError : result.getFieldErrors()) {
@@ -201,7 +202,7 @@ public class WeiXinAction extends WeixinSupport {
 				}
 			}
 		}
-		form.setMainRole(ShopRoleInit.clientRole);
+		form.setMainRole(shopRoleInit.getClientRole());
 		register(wxConfig, form);
 		return new ModelAndView("redirect:/site/user/index" + Global.urlSuffix);
 	}
@@ -214,7 +215,7 @@ public class WeiXinAction extends WeixinSupport {
 		if (wxConfigId != null && wxConfigId != 0) {
 			wxConfig = wxConfigService.findByConfigId(wxConfigId);
 		} else {
-			wxConfig = wxConfigService.findByUser(ShopUserInit.adminUser.getId());
+			wxConfig = wxConfigService.findByDefault();
 		}
 		if (form.getCode() == null) {
 			logger.info("register:" + oauth2(wxConfig, "reg"));
@@ -264,7 +265,7 @@ public class WeiXinAction extends WeixinSupport {
 		if (wxConfigId != null && wxConfigId != 0) {
 			wxConfig = wxConfigService.findByConfigId(wxConfigId);
 		} else {
-			wxConfig = wxConfigService.findByUser(ShopUserInit.adminUser.getId());
+			wxConfig = wxConfigService.findByDefault();
 		}
 		if (result.hasErrors()) {
 			for (FieldError fieldError : result.getFieldErrors()) {
@@ -288,7 +289,7 @@ public class WeiXinAction extends WeixinSupport {
 		if (wxConfigId != null && wxConfigId != 0) {
 			wxConfig = wxConfigService.findByConfigId(wxConfigId);
 		} else {
-			wxConfig = wxConfigService.findByUser(ShopUserInit.adminUser.getId());
+			wxConfig = wxConfigService.findByDefault();
 		}
 		if (result.hasErrors()) {
 			for (FieldError fieldError : result.getFieldErrors()) {

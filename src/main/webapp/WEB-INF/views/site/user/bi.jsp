@@ -14,7 +14,7 @@
 	<a class="one" href="${appPath}/site/product/list.do">
 	    	<p class="img3">商品管理<i></i></p>
 	</a>
-	<a class="one" href="${appPath}/site/user/agent.do">
+	<a class="one" href="${appPath}/site/cat/list.do">
 	    	<p class="img3">分类管理<i></i></p>
 	</a>
 	<a class="one" href="${appPath}/site/user/agent.do">

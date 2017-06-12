@@ -57,7 +57,7 @@ public class SiteCatAction {
 			Shop shop = shopService.findById(form.getShopId());
 			model.addAttribute("shop", shop);
 			model.addAttribute("cats",
-					categoryService.findByShopId(form.getShopId()));
+					shopService.findByCats(shop));
 		} else {
 			BaseUser user = userUtils.getInUser();
 			form.setCreatedBy(user.getId());

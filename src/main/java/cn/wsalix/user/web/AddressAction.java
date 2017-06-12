@@ -64,22 +64,22 @@ public class AddressAction
 		if (result.hasErrors()) {
 			for (FieldError fieldError : result.getFieldErrors()) {
 				if (fieldError.getField().equals("name")) {
-					throw Global.getException(commonException.getNameNull());
+					//throw Global.getException(commonException.getNameNull());
 				}
 				if (fieldError.getField().equals("userId")) {
-					throw Global.getException(commonException.getUserIdNull());
+					//throw Global.getException(commonException.getUserIdNull());
 				}
 				if (fieldError.getField().equals("phone")) {
-					throw Global.getException(commonException
-							.getParentCatNull());
+					//throw Global.getException(commonException
+							//.getParentCatNull());
 				}
 				if (fieldError.getField().equals("province")) {
-					throw Global.getException(commonException
-							.getParentCatNull());
+					//throw Global.getException(commonException
+					//		.getParentCatNull());
 				}
 				if (fieldError.getField().equals("street")) {
-					throw Global.getException(commonException
-							.getParentCatNull());
+					//throw Global.getException(commonException
+						//	.getParentCatNull());
 				}
 			}
 		}
@@ -123,22 +123,22 @@ public class AddressAction
 		if (result.hasErrors()) {
 			for (FieldError fieldError : result.getFieldErrors()) {
 				if (fieldError.getField().equals("name")) {
-					throw Global.getException(commonException.getNameNull());
+					//throw Global.getException(commonException.getNameNull());
 				}
 				if (fieldError.getField().equals("userId")) {
-					throw Global.getException(commonException.getUserIdNull());
+					//throw Global.getException(commonException.getUserIdNull());
 				}
 				if (fieldError.getField().equals("phone")) {
-					throw Global.getException(commonException
-							.getParentCatNull());
+					//throw Global.getException(commonException
+						//	.getParentCatNull());
 				}
 				if (fieldError.getField().equals("province")) {
-					throw Global.getException(commonException
-							.getParentCatNull());
+					//throw Global.getException(commonException
+						//	.getParentCatNull());
 				}
 				if (fieldError.getField().equals("street")) {
-					throw Global.getException(commonException
-							.getParentCatNull());
+					//throw Global.getException(commonException
+							//.getParentCatNull());
 				}
 			}
 		}

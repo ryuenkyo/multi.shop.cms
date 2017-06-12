@@ -33,6 +33,15 @@
 		<property name="genFileName" value="timestamp" />
 		<property name="httpPrix" value="${nginx.url}" />
 	</bean>
+	<bean id="menuChangeService" class="cn.wsalix.observable.service.impl.MenuChangeServiceImpl">
+		<property name="serviceList">
+			<list>
+				<ref bean="roleMenuService" />
+				<ref bean="menuService" />
+			</list>
+		</property>
+
+	</bean>
 	<bean id="fileUploadService" class="cn.wsalix.observable.service.impl.FileUploadServiceImpl">
 		<property name="serviceList">
 			<list>

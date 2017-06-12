@@ -2,6 +2,8 @@ package cn.wsalix.site.web;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -65,11 +67,14 @@ public class SiteShopAction {
 
 	@Value("${cat.product}")
 	private String productCat;// 产品分类
-
+	@Autowired
+	private HttpServletRequest request;
+	@Autowired
+	private ShopWebUtils shopWebUtils;
 	@RequestMapping(value = { "index", "/", "" }, method = RequestMethod.GET)
 	public ModelAndView index(ShopForm form, Model model) {
-		model.addAttribute("ads", advertiseService.findByShopId(form.getId()));
-		Shop shop = shopService.findById(form.getId());
+		Shop shop =shopWebUtils.getShop(request);
+		model.addAttribute("ads", shopService.findByAds(shop));
 		if (shop == null || shop.getStatus() == null
 				|| shop.getStatus().ordinal() == ShopEnum.delete.ordinal()
 				|| shop.getStatus().ordinal() == ShopEnum.close.ordinal()) {
@@ -77,7 +82,7 @@ public class SiteShopAction {
 			return new ModelAndView("/site/index");
 		}
 		model.addAttribute("shop", shop);
-		List<Category> catLst = categoryService.findByShopId(form.getId());
+		List<Category> catLst =shopService.findByCats(shop);
 		if (catLst != null && !catLst.isEmpty()) {
 			model.addAttribute("cat", catLst.get(0));
 		}

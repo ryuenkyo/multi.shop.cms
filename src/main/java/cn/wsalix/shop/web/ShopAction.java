@@ -31,6 +31,7 @@ public class ShopAction extends
 	@Menu(code = "shop:shop")
 	@Override
 	public ModelAndView toAdd(ShopForm form, BindingResult result, Model model) {
+		model.addAttribute("form", shopService.getNew(form));
 		return super.toAdd(form, result, model);
 	}
 

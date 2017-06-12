@@ -42,7 +42,8 @@ public class UserAction extends
 			.getLogger(UserAction.class);
 	@Autowired
 	private RegisterService registerService;
-
+	@Autowired
+	private ShopRoleInit shopRoleInit;
 	@Autowired
 	private UserService userService;
 	@Autowired
@@ -53,30 +54,6 @@ public class UserAction extends
 	@Override
 	public UserService getService() {
 		return userService;
-	}
-
-	@RequiresRoles("admin")
-	@RequestMapping(value = "/set_admin_role", method = RequestMethod.GET)
-	public ModelAndView setAdminRole(UserForm form, BindingResult result,
-			Model model, Pageable pageable) {
-		userService.setRole(form.getId(), ShopRoleInit.adminRole);
-		return super.list(form, result, model, pageable);
-	}
-
-	@RequiresRoles({ "admin", "employee" })
-	@RequestMapping(value = "/set_employee_role", method = RequestMethod.GET)
-	public ModelAndView setEmployeeRole(UserForm form, BindingResult result,
-			Model model, Pageable pageable) {
-		userService.setRole(form.getId(), ShopRoleInit.employeeRole);
-		return super.list(form, result, model, pageable);
-	}
-
-	@RequiresRoles({ "admin", "employee" })
-	@RequestMapping(value = "/set_trade_role", method = RequestMethod.GET)
-	public ModelAndView setTradeRole(UserForm form, BindingResult result,
-			Model model, Pageable pageable) {
-		userService.setRole(form.getId(), ShopRoleInit.tradeRole);
-		return super.list(form, result, model, pageable);
 	}
 
 	@Override
@@ -104,7 +81,8 @@ public class UserAction extends
 				}
 			}
 		}
-		form.setRoleId(ShopRoleInit.employeeRole.getId());
+		
+		form.setRoleId(shopRoleInit.getClientRole().getId());
 		// form.setUserType(UserTypeEnum.back);
 		// form.setRegType(UserRegTypeEnum.normal);
 		try {
@@ -126,27 +104,6 @@ public class UserAction extends
 
 	protected String i18n(String message) {
 		return messageSource.getMessage(message, null, null);
-	}
-
-	@Menu(code = "admin:user")
-	@Override
-	public ModelAndView list(UserForm form, BindingResult result, Model model,
-			Pageable pageable) {
-		form.setRoleId(ShopRoleInit.employeeRole.getId());
-		// form.setUserType(UserTypeEnum.back);
-		// form.setRegType(UserRegTypeEnum.normal);
-		return super.list(form, result, model, pageable);
-	}
-
-	@RequestMapping(value = "/customer_list", method = RequestMethod.GET)
-	public ModelAndView customerlist(UserForm form, BindingResult result,
-			Model model, Pageable pageable) {
-		form.setRoleId(ShopRoleInit.tradeRole.getId());
-		// form.setUserType(UserTypeEnum.normal);
-		// form.setThirdType(UserRegTypeEnum.normal);
-		// form.setThirdType(UserRegTypeEnum.qq);
-		// form.setThirdType(UserRegTypeEnum.weixin);
-		return super.list(form, result, model, pageable);
 	}
 
 	/*

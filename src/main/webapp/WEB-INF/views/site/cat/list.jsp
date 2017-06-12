@@ -33,7 +33,7 @@
     	<c:forEach items="${cats}" var="obj" varStatus="status">
 		<div class="l_bottom">
 	    	<div class="b_img">
-	        	<img src="${nginxUrl}${obj.logo}" alt="" />
+	        	<img src="${obj.logo}" alt="" />
 	        </div>
 	        <div class="b_list">
 	            <p>分类名称：${obj.name}</p>

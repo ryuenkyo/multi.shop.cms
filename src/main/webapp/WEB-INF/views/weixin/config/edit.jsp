@@ -65,7 +65,12 @@
                                         <input id="asekey" class="span11" type="text" name="asekey" value="${form.asekey}">
                                     </div>
                                 </li>
-                               
+                                <li class="control-group">
+	                                <label for="redirectUri" class="control-label">redirectUri<span class="required">*</span></label>
+	                                <div class="controls">
+	                                    <input id="redirectUri" class="span11" type="text" name="redirectUri" value="${form.redirectUri}">
+	                                </div>
+	                            </li>
                                 <!-- // form item -->
                                  <li class="control-group">
                                     <label for="loginEmail" class="control-label">登录账号<span class="required">*</span></label>

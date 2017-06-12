@@ -46,13 +46,13 @@ public class ChatAction extends
 		if (result.hasErrors()) {
 			for (FieldError fieldError : result.getFieldErrors()) {
 				if (fieldError.getField().equals("userId")) {
-					throw Global.getException(commonException.getUserIdNull());
+					//throw Global.getException(commonException.getUserIdNull());
 				}
 				if (fieldError.getField().equals("productId")) {
-					throw Global.getException(commonException.getProductIdNull());
+					//throw Global.getException(commonException.getProductIdNull());
 				}
 				if (fieldError.getField().equals("content")) {
-					throw Global.getException(commonException.getContentNull());
+					//throw Global.getException(commonException.getContentNull());
 				}
 				
 			}

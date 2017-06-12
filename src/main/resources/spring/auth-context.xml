@@ -43,8 +43,8 @@
 	<bean id="shiroDbRealm" class="cn.wsalix.shiro.AuthRealm">
 		<!-- <property name="adminAccount" value="${admin.account}" /> -->
 		<property name="userService" ref="userService" />
-		<property name="roleService" ref="roleService" />
-		<property name="loginService" ref="loginService" />
+		<property name="userRoleService" ref="userRoleService" />
+		<property name="rolePermitService" ref="rolePermitService" />
 		<!-- MD5 加密 -->
 		<property name="credentialsMatcher" ref="credentialsMatcher" />
 		<!-- 可配置 cache token 认证信息的cache，用于 REST 等需要频繁认证的场景 -->
@@ -91,6 +91,7 @@
 				/admin/login.do = adminAuthc
 				/admin/** = adminAuthc
 				/weixin/** = user
+				/shop/** = user
 				/user/** = user
 				/finance/** = user
 				/biz/** = user

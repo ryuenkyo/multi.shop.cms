@@ -15,8 +15,8 @@ import cn.wsalix.freemarker.FreemarkerUtil;
 import cn.wsalix.order.entity.MasterTuan;
 import cn.wsalix.order.repository.TuanRepository;
 import cn.wsalix.order.service.TuanService;
+import cn.wsalix.shop.form.TuanForm;
 import cn.wsalix.status.TuanEnum;
-import cn.wsalix.user.form.TuanForm;
 
 @Controller
 @RequestMapping(value = "/user/tuan")

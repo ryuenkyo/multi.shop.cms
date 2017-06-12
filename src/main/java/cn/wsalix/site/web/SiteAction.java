@@ -71,7 +71,8 @@ public class SiteAction {
 
 	@Autowired
 	private ProductService productService;
-
+	@Autowired
+	private ShopRoleInit shopRoleInit;
 	@Autowired
 	private WxConfigService wxConfigService;
 	@Autowired
@@ -95,7 +96,10 @@ public class SiteAction {
 	private RegisterService userRegisterService;
 	@Autowired
 	protected UserException userException;
-
+	@Autowired
+	private HttpServletRequest request;
+	@Autowired
+	private ShopWebUtils shopWebUtils;
 	@Value("${dict.ad_banner}")
 	private String adBanner;// 首页广告
 
@@ -109,16 +113,18 @@ public class SiteAction {
 		return new ModelAndView("/site/main");
 	}
 
-	@RequestMapping(value = { "index", "/", "" }, method = RequestMethod.GET)
-	public ModelAndView index(UserForm form, Model model) {
-		if (form.getShopId() == null) {
-			return new ModelAndView("redirect:/site/main" + Global.urlSuffix);
+	@RequestMapping(value = {"/{alias}" }, method = RequestMethod.GET)
+	public ModelAndView index(@PathVariable("alias") String alias,UserForm form, Model model) {
+		if (alias == null||alias.equals("")) {
+			return new ModelAndView("redirect:/site/no_shop" + Global.urlSuffix);
 		}
+		Shop shop = shopService.findByAlias(alias);
+		shopWebUtils.setShop(shop,request);
+		
 		model.addAttribute("ads",
-				advertiseService.findByShopId(form.getShopId()));
-		Shop shop = shopService.findById(form.getShopId());
+				shopService.findByAds(shop));
 		model.addAttribute("shop", shop);
-		List<Category> catLst = categoryService.findByShopId(form.getShopId());
+		List<Category> catLst = shopService.findByCats(shop);
 		if (catLst != null && !catLst.isEmpty()) {
 			model.addAttribute("cat", catLst.get(0));
 		}
@@ -127,21 +133,22 @@ public class SiteAction {
 		// 分类商品
 		for (Category cat : catLst) {
 			proMap.put(cat.getId(), productService.findByTypeAndFkidAndCat(
-					ProductTypeEnum.shop, form.getShopId(), cat.getId()));
+					ProductTypeEnum.shop, shop, cat.getId()));
 		}
 		model.addAttribute("proMap", proMap);
 		return new ModelAndView("/site/index");
 	}
 
 	@RequestMapping(value = { "index", "/", "" }, method = RequestMethod.POST)
-	public ModelAndView indexPost(UserForm form, Model model) {
-		if (form.getShopId() != null) {
+	public ModelAndView indexPost(UserForm form, Model model) {		
+		Shop shop =shopWebUtils.getShop(request);
+		if (shop == null) {
+			return new ModelAndView("redirect:/site/no_shop" + Global.urlSuffix);
 		}
 		model.addAttribute("ads",
-				advertiseService.findByShopId(form.getShopId()));
-		Shop shop = shopService.findById(form.getShopId());
+				shopService.findByAds(shop));
 		model.addAttribute("shop", shop);
-		List<Category> catLst = categoryService.findByShopId(form.getShopId());
+		List<Category> catLst = shopService.findByCats(shop);
 		if (catLst != null && !catLst.isEmpty()) {
 			model.addAttribute("cat", catLst.get(0));
 		}
@@ -185,7 +192,7 @@ public class SiteAction {
 			Shop shop = shopService.findById(form.getShopId());
 			model.addAttribute("shop", shop);
 			model.addAttribute("cats",
-					categoryService.findByShopId(form.getShopId()));
+					shopService.findByCats(shop));
 		} else {
 			BaseUser user = userUtils.getInUser();
 			form.setCreatedBy(user.getId());
@@ -264,7 +271,7 @@ public class SiteAction {
 		token.setRememberMe(true);
 		subject.login(token);*/
 		try {
-			userForm.setRoleId(ShopRoleInit.clientRole.getId());
+			userForm.setRoleId(shopRoleInit.getClientRole().getId());
 			userRegisterService.register(userForm);
 		} catch (NutException e) {
 			result.rejectValue("msg", e.getMessage());

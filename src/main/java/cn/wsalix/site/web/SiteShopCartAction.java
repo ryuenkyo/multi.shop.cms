@@ -13,10 +13,10 @@ import org.springframework.web.servlet.ModelAndView;
 import cn.anlaser.admin.BaseUser;
 import cn.wsalix.admin.service.UserService;
 import cn.wsalix.constant.Global;
-import cn.wsalix.msg.service.ShopCartService;
 import cn.wsalix.shop.entity.ShopCart;
+import cn.wsalix.shop.form.ShopCartForm;
 import cn.wsalix.shop.form.ShopForm;
-import cn.wsalix.user.form.ShopCartForm;
+import cn.wsalix.shop.service.ShopCartService;
 import cn.wsalix.utils.UserUtils;
 
 @Controller

@@ -35,7 +35,8 @@ public class ShopCustomerAction extends
 			.getLogger(UserAction.class);
 	@Autowired
 	private RegisterService registerService;
-
+	@Autowired
+	private ShopRoleInit shopRoleInit;
 	@Autowired
 	private UserService userService;
 
@@ -70,7 +71,7 @@ public class ShopCustomerAction extends
 	@Override
 	public ModelAndView list(UserForm form, BindingResult result, Model model,
 			Pageable pageable) {
-		form.setRoleId(ShopRoleInit.employeeRole.getId());
+		form.setRoleId(shopRoleInit.getClientRole().getId());
 		//form.setUserType(UserTypeEnum.normal);
 		// form.setThirdType(UserRegTypeEnum.normal);
 		// form.setThirdType(UserRegTypeEnum.qq);
