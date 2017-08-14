@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import cn.wsalix.admin.entity.SysRole;
-import cn.wsalix.admin.service.RequiresRoleService;
+import cn.wsalix.admin.service.AuthDataService;
 import cn.wsalix.admin.service.RoleService;
 import cn.wsalix.init.RoleInit;
 
@@ -20,7 +20,7 @@ public class ShopRoleInit implements RoleInit {
 	private RoleService roleService;
 
 	@Autowired
-	private RequiresRoleService requiresRoleService;
+	private AuthDataService AuthDataService;
 	boolean isExe = false;
 
 	@Transactional

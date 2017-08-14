@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import cn.anlaser.web.impl.BasicActionImpl;
 import cn.wsalix.order.entity.OrderInfo;
+import cn.wsalix.order.form.OrderInfoForm;
 import cn.wsalix.order.repository.OrderInfoRepository;
 import cn.wsalix.order.service.OrderInfoService;
-import cn.wsalix.shop.form.OrderInfoForm;
 
 @Controller
 @RequestMapping(value = "/user/order_info")

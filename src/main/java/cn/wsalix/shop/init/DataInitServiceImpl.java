@@ -9,10 +9,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import cn.wsalix.admin.entity.RequiresRole;
+import cn.wsalix.admin.entity.AuthData;
 import cn.wsalix.admin.entity.SysDict;
 import cn.wsalix.admin.repository.DictRepository;
-import cn.wsalix.admin.repository.RequiresRoleRepository;
+import cn.wsalix.admin.repository.AuthDataRepository;
 import cn.wsalix.admin.service.DataInitService;
 import cn.wsalix.admin.status.DictEnum;
 import cn.wsalix.biz.entity.Category;
@@ -39,7 +39,7 @@ public class DataInitServiceImpl implements DataInitService {
 	@Autowired
 	private DictRepository dictRepository;
 	@Autowired
-	private RequiresRoleRepository requiresRoleRepository;
+	private AuthDataRepository AuthDataRepository;
 
 	/*
 	 * @Autowired private RegisterService registerService;
@@ -76,29 +76,29 @@ public class DataInitServiceImpl implements DataInitService {
 		// admin/support/trade/client
 		String[] role = { "admin", "support", "trade", "client" };
 		for (String code : role) {
-			RequiresRole requiresRole = new RequiresRole();
-			requiresRole.setCode(code);
-			requiresRole.setCreatedDate(new Date());// DateTime.now());
-			requiresRole.setCreatedBy(0l);
-			requiresRoleRepository.save(requiresRole);
+			AuthData AuthData = new AuthData();
+			AuthData.setCode(code);
+			AuthData.setCreatedDate(new Date());// DateTime.now());
+			AuthData.setCreatedBy(0l);
+			AuthDataRepository.save(AuthData);
 		}
-		Map<String, Object> annotationBeans = springUtils
-				.getBeansWithAnnotation(RequiresRoles.class);
+		/*Map<String, Object> annotationBeans = springUtils
+				.getBeansWithAnnotation(AuthDatas.class);
 		for (Object bean : annotationBeans.values()) {
-			RequiresRoles anno = bean.getClass().getAnnotation(
-					RequiresRoles.class);
+			AuthDatas anno = bean.getClass().getAnnotation(
+					AuthDatas.class);
 			if (anno == null) {
 				return false;
 			}
 			for (String code : anno.value()) {
-				RequiresRole requiresRole = new RequiresRole();
-				requiresRole.setCode(code);
-				requiresRole.setCreatedDate(new Date());// DateTime.now());
-				requiresRole.setCreatedBy(0l);
-				requiresRoleRepository.save(requiresRole);
+				AuthData AuthData = new AuthData();
+				AuthData.setCode(code);
+				AuthData.setCreatedDate(new Date());// DateTime.now());
+				AuthData.setCreatedBy(0l);
+				AuthDataRepository.save(AuthData);
 			}
 
-		}
+		}*/
 		return false;
 	}
 
@@ -109,11 +109,11 @@ public class DataInitServiceImpl implements DataInitService {
 	@Override
 	public boolean permitInit(boolean create) {
 		String[] permits = permitGroup.split("\\,");
-		List<RequiresRole> requiresRoles = requiresRoleRepository.findAll();
-		for (RequiresRole requiresRole : requiresRoles) {
+		List<AuthData> AuthDatas = AuthDataRepository.findAll();
+		for (AuthData AuthData : AuthDatas) {
 			for (String code : permits) {
 				RequiresPermit obj = new RequiresPermit();
-				obj.setCode(requiresRole.getCode() + ":" + code);
+				obj.setCode(AuthData.getCode() + ":" + code);
 				obj.setCreatedDate(new Date());// DateTime.now());
 				obj.setCreatedBy(0l);
 				requiresPermitRepository.save(obj);

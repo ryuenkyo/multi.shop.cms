@@ -44,7 +44,7 @@ public class DictDAOTest extends AbstractTransactionalJUnit4SpringContextTests {
 	/*	Map<String, Object> annotationBeans = springUtils
 				.getBeansWithAnnotation(Controller.class);
 		Map<String, Object> roleBeans = springUtils
-				.getBeansWithAnnotation(RequiresRoles.class);
+				.getBeansWithAnnotation(AuthDatas.class);
 		Map<String, Object> permitBeans = springUtils
 				.getBeansWithAnnotation(RequiresPermissions.class);
 */		dictService.findAll();

@@ -113,7 +113,7 @@ public class SiteAction {
 		return new ModelAndView("/site/main");
 	}
 
-	@RequestMapping(value = {"/{alias}" }, method = RequestMethod.GET)
+/*	@RequestMapping(value = {"/{alias}" }, method = RequestMethod.GET)
 	public ModelAndView index(@PathVariable("alias") String alias,UserForm form, Model model) {
 		if (alias == null||alias.equals("")) {
 			return new ModelAndView("redirect:/site/no_shop" + Global.urlSuffix);
@@ -138,8 +138,8 @@ public class SiteAction {
 		model.addAttribute("proMap", proMap);
 		return new ModelAndView("/site/index");
 	}
-
-	@RequestMapping(value = { "index", "/", "" }, method = RequestMethod.POST)
+*/
+	@RequestMapping(value = { "index", "/", "" }, method = RequestMethod.GET)
 	public ModelAndView indexPost(UserForm form, Model model) {		
 		Shop shop =shopWebUtils.getShop(request);
 		if (shop == null) {

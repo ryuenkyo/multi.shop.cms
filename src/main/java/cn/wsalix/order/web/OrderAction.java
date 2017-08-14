@@ -13,10 +13,10 @@ import cn.anlaser.web.impl.SimpleActionImpl;
 import cn.wsalix.admin.entity.SysUser;
 import cn.wsalix.admin.service.UserService;
 import cn.wsalix.order.entity.Order;
+import cn.wsalix.order.form.OrderForm;
 import cn.wsalix.order.repository.OrderRepository;
 import cn.wsalix.order.service.OrderService;
 import cn.wsalix.order.status.OrderEnum;
-import cn.wsalix.shop.form.OrderForm;
 
 @Controller
 @RequestMapping(value = "/user/order")
