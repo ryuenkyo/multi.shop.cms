@@ -11,7 +11,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.7</java.version>
 		<jedis.version>2.1.0</jedis.version>
-		<spring.data.version>1.9.0.RELEASE</spring.data.version>
+		<spring.data.version>1.11.23.RELEASE</spring.data.version>
 		<spring.version>4.1.7.RELEASE</spring.version>
 		<lombok.version>1.14.8</lombok.version>
 		<shiro.version>1.2.3</shiro.version>
